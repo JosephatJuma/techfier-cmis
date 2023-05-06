@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Equipment = require("../models/equipment");
+
 router.get("/", (req, res) => {
   res.send("equipment");
 });
 
 router.get("/add", (req, res) => {
-  res.render("add-equipment.pug", { page: "add-equipment" });
+  res.render("add-equipment.pug", { page: "Add Equipment" });
 });
 
 router.post("/add", async (req, res) => {

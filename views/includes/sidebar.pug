@@ -23,11 +23,10 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
         ul.nav.nav-pills.nav-sidebar.flex-column(data-widget='treeview' role='menu' data-accordion='false')
           li.nav-header Navigation
           li.nav-item
-            a.nav-link.active(href='/')
+            a.nav-link(href='/' class= page=="Dashboard" ? "active":"")
               i.nav-icon.fas.fa-tachometer-alt
               p
                 | Dashboard
-                span.badge.badge-info.right 2
           li.nav-item
             a.nav-link(href='pages/gallery.html')
               i.nav-icon.far.fa-image
@@ -37,15 +36,15 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
               i.nav-icon.fas.fa-calendar
               p Schedule
           li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.far.fa-envelope
+            a.nav-link(href='#' class= page=="Add Equipment" ? "active":"")
+              i.nav-icon.fa.fa-wrench
               p
                 | Equipment
                 i.fas.fa-angle-left.right
             ul.nav.nav-treeview
               li.nav-item
-                a.nav-link(href='/equipment/add')
-                  i.far.fa-circle.nav-icon
+                a.nav-link(href='/equipment/add' class= page=="Add Equipment" ? "active":"")
+                  i.fas.fa-plus.nav-icon
                   p Add equipment
               li.nav-item
                 a.nav-link(href='pages/mailbox/compose.html')
