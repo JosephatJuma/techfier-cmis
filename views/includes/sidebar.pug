@@ -1,16 +1,16 @@
 aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 0;left: 0;height: 100%;width: 250px; transition: transform 0.3s ease-in-out; overflow-y: auto;")
     // Brand Logo
     a.brand-link(href='index3.html')
-      img.brand-image.img-circle.elevation-3(src='dist/img/AdminLTELogo.png' alt='AdminLTE Logo' style='opacity: 0.8')
+      img.brand-image.img-circle.elevation-3(src='/dist/img/AdminLTELogo.png' alt='AdminLTE Logo' style='opacity: 0.8')
       span.brand-text.font-weight-light Techfier
     // Sidebar
     .sidebar
       // Sidebar user panel (optional)
       .user-panel.mt-3.pb-3.mb-3.d-flex
         .image
-          img.img-circle.elevation-2(src='dist/img/user2-160x160.jpg' alt='User Image')
+          img.img-circle.elevation-2(src='/dist/img/user2-160x160.jpg' alt='User Image')
         .info
-          a.d-block(href='#') Alexander Pierce
+          a.d-block(href='#') User Name
       // SidebarSearch Form
       .form-inline
         .input-group(data-widget='sidebar-search')
@@ -21,210 +21,36 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
       // Sidebar Menu
       nav.mt-2
         ul.nav.nav-pills.nav-sidebar.flex-column(data-widget='treeview' role='menu' data-accordion='false')
-          //
-            Add icons to the links using the .nav-icon class
-            with font-awesome or any other icon font library
-          li.nav-item.menu-open
-            a.nav-link.active(href='#')
+          li.nav-header Navigation
+          li.nav-item
+            a.nav-link.active(href='/')
               i.nav-icon.fas.fa-tachometer-alt
               p
                 | Dashboard
-                i.right.fas.fa-angle-left
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link.active(href='./index.html')
-                  i.far.fa-circle.nav-icon
-                  p Dashboard v1
-              li.nav-item
-                a.nav-link(href='./index2.html')
-                  i.far.fa-circle.nav-icon
-                  p Dashboard v2
-              li.nav-item
-                a.nav-link(href='./index3.html')
-                  i.far.fa-circle.nav-icon
-                  p Dashboard v3
-          li.nav-item
-            a.nav-link(href='pages/widgets.html')
-              i.nav-icon.fas.fa-th
-              p
-                | Widgets
-                span.right.badge.badge-danger New
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.fas.fa-copy
-              p
-                | Layout Options
-                i.fas.fa-angle-left.right
-                span.badge.badge-info.right 6
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='pages/layout/top-nav.html')
-                  i.far.fa-circle.nav-icon
-                  p Top Navigation
-              li.nav-item
-                a.nav-link(href='pages/layout/top-nav-sidebar.html')
-                  i.far.fa-circle.nav-icon
-                  p Top Navigation + Sidebar
-              li.nav-item
-                a.nav-link(href='pages/layout/boxed.html')
-                  i.far.fa-circle.nav-icon
-                  p Boxed
-              li.nav-item
-                a.nav-link(href='pages/layout/fixed-sidebar.html')
-                  i.far.fa-circle.nav-icon
-                  p Fixed Sidebar
-              li.nav-item
-                a.nav-link(href='pages/layout/fixed-sidebar-custom.html')
-                  i.far.fa-circle.nav-icon
-                  p
-                    | Fixed Sidebar 
-                    small + Custom Area
-              li.nav-item
-                a.nav-link(href='pages/layout/fixed-topnav.html')
-                  i.far.fa-circle.nav-icon
-                  p Fixed Navbar
-              li.nav-item
-                a.nav-link(href='pages/layout/fixed-footer.html')
-                  i.far.fa-circle.nav-icon
-                  p Fixed Footer
-              li.nav-item
-                a.nav-link(href='pages/layout/collapsed-sidebar.html')
-                  i.far.fa-circle.nav-icon
-                  p Collapsed Sidebar
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.fas.fa-chart-pie
-              p
-                | Charts
-                i.right.fas.fa-angle-left
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='pages/charts/chartjs.html')
-                  i.far.fa-circle.nav-icon
-                  p ChartJS
-              li.nav-item
-                a.nav-link(href='pages/charts/flot.html')
-                  i.far.fa-circle.nav-icon
-                  p Flot
-              li.nav-item
-                a.nav-link(href='pages/charts/inline.html')
-                  i.far.fa-circle.nav-icon
-                  p Inline
-              li.nav-item
-                a.nav-link(href='pages/charts/uplot.html')
-                  i.far.fa-circle.nav-icon
-                  p uPlot
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.fas.fa-tree
-              p
-                | UI Elements
-                i.fas.fa-angle-left.right
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='pages/UI/general.html')
-                  i.far.fa-circle.nav-icon
-                  p General
-              li.nav-item
-                a.nav-link(href='pages/UI/icons.html')
-                  i.far.fa-circle.nav-icon
-                  p Icons
-              li.nav-item
-                a.nav-link(href='pages/UI/buttons.html')
-                  i.far.fa-circle.nav-icon
-                  p Buttons
-              li.nav-item
-                a.nav-link(href='pages/UI/sliders.html')
-                  i.far.fa-circle.nav-icon
-                  p Sliders
-              li.nav-item
-                a.nav-link(href='pages/UI/modals.html')
-                  i.far.fa-circle.nav-icon
-                  p Modals &amp; Alerts
-              li.nav-item
-                a.nav-link(href='pages/UI/navbar.html')
-                  i.far.fa-circle.nav-icon
-                  p Navbar &amp; Tabs
-              li.nav-item
-                a.nav-link(href='pages/UI/timeline.html')
-                  i.far.fa-circle.nav-icon
-                  p Timeline
-              li.nav-item
-                a.nav-link(href='pages/UI/ribbons.html')
-                  i.far.fa-circle.nav-icon
-                  p Ribbons
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.fas.fa-edit
-              p
-                | Forms
-                i.fas.fa-angle-left.right
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='pages/forms/general.html')
-                  i.far.fa-circle.nav-icon
-                  p General Elements
-              li.nav-item
-                a.nav-link(href='pages/forms/advanced.html')
-                  i.far.fa-circle.nav-icon
-                  p Advanced Elements
-              li.nav-item
-                a.nav-link(href='pages/forms/editors.html')
-                  i.far.fa-circle.nav-icon
-                  p Editors
-              li.nav-item
-                a.nav-link(href='pages/forms/validation.html')
-                  i.far.fa-circle.nav-icon
-                  p Validation
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.fas.fa-table
-              p
-                | Tables
-                i.fas.fa-angle-left.right
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='pages/tables/simple.html')
-                  i.far.fa-circle.nav-icon
-                  p Simple Tables
-              li.nav-item
-                a.nav-link(href='pages/tables/data.html')
-                  i.far.fa-circle.nav-icon
-                  p DataTables
-              li.nav-item
-                a.nav-link(href='pages/tables/jsgrid.html')
-                  i.far.fa-circle.nav-icon
-                  p jsGrid
-          li.nav-header EXAMPLES
-          li.nav-item
-            a.nav-link(href='pages/calendar.html')
-              i.nav-icon.far.fa-calendar-alt
-              p
-                | Calendar
                 span.badge.badge-info.right 2
           li.nav-item
             a.nav-link(href='pages/gallery.html')
               i.nav-icon.far.fa-image
-              p Gallery
+              p Spare parts
           li.nav-item
             a.nav-link(href='pages/kanban.html')
-              i.nav-icon.fas.fa-columns
-              p Kanban Board
+              i.nav-icon.fas.fa-calendar
+              p Schedule
           li.nav-item
             a.nav-link(href='#')
               i.nav-icon.far.fa-envelope
               p
-                | Mailbox
+                | Equipment
                 i.fas.fa-angle-left.right
             ul.nav.nav-treeview
               li.nav-item
-                a.nav-link(href='pages/mailbox/mailbox.html')
+                a.nav-link(href='/equipment/add')
                   i.far.fa-circle.nav-icon
-                  p Inbox
+                  p Add equipment
               li.nav-item
                 a.nav-link(href='pages/mailbox/compose.html')
                   i.far.fa-circle.nav-icon
-                  p Compose
+                  p Manage equipment
               li.nav-item
                 a.nav-link(href='pages/mailbox/read-mail.html')
                   i.far.fa-circle.nav-icon

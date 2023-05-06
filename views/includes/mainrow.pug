@@ -1,0 +1,378 @@
+  .row
+          // Left col
+          section.col-lg-7.connectedSortable
+            // Custom tabs (Charts with tabs)
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-chart-pie.mr-1
+                  |                       Sales
+                .card-tools
+                  ul.nav.nav-pills.ml-auto
+                    li.nav-item
+                      a.nav-link.active(href='#revenue-chart' data-toggle='tab') Area
+                    li.nav-item
+                      a.nav-link(href='#sales-chart' data-toggle='tab') Donut
+              // /.card-header
+              .card-body
+                .tab-content.p-0
+                  // Morris chart - Sales
+                  #revenue-chart.chart.tab-pane.active(style='position: relative; height: 300px')
+                    canvas#revenue-chart-canvas(height='300' style='height: 300px')
+                  #sales-chart.chart.tab-pane(style='position: relative; height: 300px')
+                    canvas#sales-chart-canvas(height='300' style='height: 300px')
+              // /.card-body
+            // /.card
+            // DIRECT CHAT
+            .card.direct-chat.direct-chat-primary
+              .card-header
+                h3.card-title Direct Chat
+                .card-tools
+                  span.badge.badge-primary(title='3 New Messages') 3
+                  button.btn.btn-tool(type='button' data-card-widget='collapse')
+                    i.fas.fa-minus
+                  button.btn.btn-tool(type='button' title='Contacts' data-widget='chat-pane-toggle')
+                    i.fas.fa-comments
+                  button.btn.btn-tool(type='button' data-card-widget='remove')
+                    i.fas.fa-times
+              // /.card-header
+              .card-body
+                // Conversations are loaded here
+                .direct-chat-messages
+                  // Message. Default to the left
+                  .direct-chat-msg
+                    .direct-chat-infos.clearfix
+                      span.direct-chat-name.float-left Alexander Pierce
+                      span.direct-chat-timestamp.float-right 23 Jan 2:00 pm
+                    // /.direct-chat-infos
+                    img.direct-chat-img(src='dist/img/user1-128x128.jpg' alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text
+                      | Is this template really for free? That&apos;s unbelievable!
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                  // Message to the right
+                  .direct-chat-msg.right
+                    .direct-chat-infos.clearfix
+                      span.direct-chat-name.float-right Sarah Bullock
+                      span.direct-chat-timestamp.float-left 23 Jan 2:05 pm
+                    // /.direct-chat-infos
+                    img.direct-chat-img(src='dist/img/user3-128x128.jpg' alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text
+                      | You better believe it!
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                  // Message. Default to the left
+                  .direct-chat-msg
+                    .direct-chat-infos.clearfix
+                      span.direct-chat-name.float-left Alexander Pierce
+                      span.direct-chat-timestamp.float-right 23 Jan 5:37 pm
+                    // /.direct-chat-infos
+                    img.direct-chat-img(src='dist/img/user1-128x128.jpg' alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text
+                      | Working with AdminLTE on a great new app! Wanna join?
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                  // Message to the right
+                  .direct-chat-msg.right
+                    .direct-chat-infos.clearfix
+                      span.direct-chat-name.float-right Sarah Bullock
+                      span.direct-chat-timestamp.float-left 23 Jan 6:10 pm
+                    // /.direct-chat-infos
+                    img.direct-chat-img(src='dist/img/user3-128x128.jpg' alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text I would love to.
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                // /.direct-chat-messages
+                // Contacts are loaded here
+                .direct-chat-contacts
+                  ul.contacts-list
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='dist/img/user1-128x128.jpg' alt='User Avatar')
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Count Dracula
+                            small.contacts-list-date.float-right 2/28/2015
+                          span.contacts-list-msg How have you been? I was...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='dist/img/user7-128x128.jpg' alt='User Avatar')
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Sarah Doe
+                            small.contacts-list-date.float-right 2/23/2015
+                          span.contacts-list-msg I will be waiting for...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='dist/img/user3-128x128.jpg' alt='User Avatar')
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Nadia Jolie
+                            small.contacts-list-date.float-right 2/20/2015
+                          span.contacts-list-msg I&apos;ll call you back at...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='dist/img/user5-128x128.jpg' alt='User Avatar')
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Nora S. Vans
+                            small.contacts-list-date.float-right 2/10/2015
+                          span.contacts-list-msg Where is your new...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='dist/img/user6-128x128.jpg' alt='User Avatar')
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | John K.
+                            small.contacts-list-date.float-right 1/27/2015
+                          span.contacts-list-msg Can I take a look at...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='dist/img/user8-128x128.jpg' alt='User Avatar')
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Kenneth M.
+                            small.contacts-list-date.float-right 1/4/2015
+                          span.contacts-list-msg Never mind I found...
+                        // /.contacts-list-info
+                    // End Contact Item
+                  // /.contacts-list
+                // /.direct-chat-pane
+              // /.card-body
+              .card-footer
+                form(action='#' method='post')
+                  .input-group
+                    input.form-control(type='text' name='message' placeholder='Type Message ...')
+                    span.input-group-append
+                      button.btn.btn-primary(type='button')
+                        | Send
+              // /.card-footer
+            // /.direct-chat
+            // TO DO List
+            .card
+              .card-header
+                h3.card-title
+                  i.ion.ion-clipboard.mr-1
+                  |                       To Do List
+                .card-tools
+                  ul.pagination.pagination-sm
+                    li.page-item
+                      a.page-link(href='#') &laquo;
+                    li.page-item
+                      a.page-link(href='#') 1
+                    li.page-item
+                      a.page-link(href='#') 2
+                    li.page-item
+                      a.page-link(href='#') 3
+                    li.page-item
+                      a.page-link(href='#') &raquo;
+              // /.card-header
+              .card-body
+                ul.todo-list(data-widget='todo-list')
+                  li
+                    // drag handle
+                    span.handle
+                      i.fas.fa-ellipsis-v
+                      i.fas.fa-ellipsis-v
+                    // checkbox
+                    .icheck-primary.d-inline.ml-2
+                      input#todoCheck1(type='checkbox' value='' name='todo1')
+                      label(for='todoCheck1')
+                    // todo text
+                    span.text Design a nice theme
+                    // Emphasis label
+                    small.badge.badge-danger
+                      i.far.fa-clock
+                      |  2 mins
+                    // General tools such as edit or delete
+                    .tools
+                      i.fas.fa-edit
+                      i.fas.fa-trash-o
+                  li
+                    span.handle
+                      i.fas.fa-ellipsis-v
+                      i.fas.fa-ellipsis-v
+                    .icheck-primary.d-inline.ml-2
+                      input#todoCheck2(type='checkbox' value='' name='todo2' checked='')
+                      label(for='todoCheck2')
+                    span.text Make the theme responsive
+                    small.badge.badge-info
+                      i.far.fa-clock
+                      |  4 hours
+                    .tools
+                      i.fas.fa-edit
+                      i.fas.fa-trash-o
+                  li
+                    span.handle
+                      i.fas.fa-ellipsis-v
+                      i.fas.fa-ellipsis-v
+                    .icheck-primary.d-inline.ml-2
+                      input#todoCheck3(type='checkbox' value='' name='todo3')
+                      label(for='todoCheck3')
+                    span.text Let theme shine like a star
+                    small.badge.badge-warning
+                      i.far.fa-clock
+                      |  1 day
+                    .tools
+                      i.fas.fa-edit
+                      i.fas.fa-trash-o
+                  li
+                    span.handle
+                      i.fas.fa-ellipsis-v
+                      i.fas.fa-ellipsis-v
+                    .icheck-primary.d-inline.ml-2
+                      input#todoCheck4(type='checkbox' value='' name='todo4')
+                      label(for='todoCheck4')
+                    span.text Let theme shine like a star
+                    small.badge.badge-success
+                      i.far.fa-clock
+                      |  3 days
+                    .tools
+                      i.fas.fa-edit
+                      i.fas.fa-trash-o
+                  li
+                    span.handle
+                      i.fas.fa-ellipsis-v
+                      i.fas.fa-ellipsis-v
+                    .icheck-primary.d-inline.ml-2
+                      input#todoCheck5(type='checkbox' value='' name='todo5')
+                      label(for='todoCheck5')
+                    span.text Check your messages and notifications
+                    small.badge.badge-primary
+                      i.far.fa-clock
+                      |  1 week
+                    .tools
+                      i.fas.fa-edit
+                      i.fas.fa-trash-o
+                  li
+                    span.handle
+                      i.fas.fa-ellipsis-v
+                      i.fas.fa-ellipsis-v
+                    .icheck-primary.d-inline.ml-2
+                      input#todoCheck6(type='checkbox' value='' name='todo6')
+                      label(for='todoCheck6')
+                    span.text Let theme shine like a star
+                    small.badge.badge-secondary
+                      i.far.fa-clock
+                      |  1 month
+                    .tools
+                      i.fas.fa-edit
+                      i.fas.fa-trash-o
+              // /.card-body
+              .card-footer.clearfix
+                button.btn.btn-primary.float-right(type='button')
+                  i.fas.fa-plus
+                  |  Add item
+            // /.card
+          // /.Left col
+          // right col (We are only adding the ID to make the widgets sortable)
+          section.col-lg-5.connectedSortable
+            // Map card
+            .card.bg-gradient-primary
+              .card-header.border-0
+                h3.card-title
+                  i.fas.fa-map-marker-alt.mr-1
+                  |                       Visitors
+                // card tools
+                .card-tools
+                  button.btn.btn-primary.btn-sm.daterange(type='button' title='Date range')
+                    i.far.fa-calendar-alt
+                  button.btn.btn-primary.btn-sm(type='button' data-card-widget='collapse' title='Collapse')
+                    i.fas.fa-minus
+                // /.card-tools
+              .card-body
+                #world-map(style='height: 250px; width: 100%')
+              // /.card-body
+              .card-footer.bg-transparent
+                .row
+                  .col-4.text-center
+                    #sparkline-1
+                    .text-white Visitors
+                  // ./col
+                  .col-4.text-center
+                    #sparkline-2
+                    .text-white Online
+                  // ./col
+                  .col-4.text-center
+                    #sparkline-3
+                    .text-white Sales
+                  // ./col
+                // /.row
+            // /.card
+            // solid sales graph
+            .card.bg-gradient-info
+              .card-header.border-0
+                h3.card-title
+                  i.fas.fa-th.mr-1
+                  |                       Sales Graph
+                .card-tools
+                  button.btn.bg-info.btn-sm(type='button' data-card-widget='collapse')
+                    i.fas.fa-minus
+                  button.btn.bg-info.btn-sm(type='button' data-card-widget='remove')
+                    i.fas.fa-times
+              .card-body
+                canvas#line-chart.chart(style='\
+                min-height: 250px;\
+                height: 250px;\
+                max-height: 250px;\
+                max-width: 100%;\
+                ')
+              // /.card-body
+              .card-footer.bg-transparent
+                .row
+                  .col-4.text-center
+                    input.knob(type='text' data-readonly='true' value='20' data-width='60' data-height='60' data-fgcolor='#39CCCC')
+                    .text-white Mail-Orders
+                  // ./col
+                  .col-4.text-center
+                    input.knob(type='text' data-readonly='true' value='50' data-width='60' data-height='60' data-fgcolor='#39CCCC')
+                    .text-white Online
+                  // ./col
+                  .col-4.text-center
+                    input.knob(type='text' data-readonly='true' value='30' data-width='60' data-height='60' data-fgcolor='#39CCCC')
+                    .text-white In-Store
+                  // ./col
+                // /.row
+              // /.card-footer
+            // /.card
+            // Calendar
+            .card.bg-gradient-success
+              .card-header.border-0
+                h3.card-title
+                  i.far.fa-calendar-alt
+                  |                       Calendar
+                // tools card
+                .card-tools
+                  // button with a dropdown
+                  .btn-group
+                    button.btn.btn-success.btn-sm.dropdown-toggle(type='button' data-toggle='dropdown' data-offset='-52')
+                      i.fas.fa-bars
+                    .dropdown-menu(role='menu')
+                      a.dropdown-item(href='#') Add new event
+                      a.dropdown-item(href='#') Clear events
+                      .dropdown-divider
+                      a.dropdown-item(href='#') View calendar
+                  button.btn.btn-success.btn-sm(type='button' data-card-widget='collapse')
+                    i.fas.fa-minus
+                  button.btn.btn-success.btn-sm(type='button' data-card-widget='remove')
+                    i.fas.fa-times
+                // /. tools
+              // /.card-header
+              .card-body.pt-0
+                // The calendar
+                #calendar(style='width: 100%')
+        

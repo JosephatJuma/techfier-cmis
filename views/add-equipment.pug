@@ -1,0 +1,49 @@
+include ./includes/head.pug
+.wrapper
+  .preloader.flex-column.justify-content-center.align-items-center
+    img.animation__shake(src='/dist/img/AdminLTELogo.png' alt='AdminLTELogo' height='60' width='60')
+  include ./includes/navbar.pug
+  include ./includes/sidebar.pug
+  .content-wrapper
+    // Content Header (Page header)
+    .content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1.m-0 Dashboard
+          // /.col
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active Dashboard v1
+        section.content
+            .container-fluid
+                .card.card-primary
+                    .card-header
+                        h3.card-title Add new equipment
+                    form(action="/equipment/add" method="Post")
+                     .card-body
+                        .form-group
+                            label Equipment Name
+                            input#equipment_name.form-control(type='text' placeholder='Enter equipment name' name="equipment_name")
+                        .form-group
+                            label Department
+                            input#department.form-control(type='text' placeholder='Department' name="department")
+                        .form-group
+                            label(for='exampleInputFile') Equipment Image
+                        .input-group
+                            .custom-file
+                                input#exampleInputFile.custom-file-input(type='file')
+                                label.custom-file-label(for='exampleInputFile') Choose file
+                            .input-group-append
+                                span.input-group-text Upload
+                        .form-check
+                            input#exampleCheck1.form-check-input(type='checkbox')
+                            label.form-check-label(for='exampleCheck1') Check me out
+                            // /.card-body
+                        .card-footer
+                                button.btn.btn-primary(type='submit') Add equipment
+  include ./includes/footer.pug
+// ./wrapper
+include ./includes/scripts.pug
