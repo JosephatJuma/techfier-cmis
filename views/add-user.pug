@@ -1,0 +1,60 @@
+include ./includes/head.pug
+.wrapper
+  .preloader.flex-column.justify-content-center.align-items-center
+    img.animation__shake(src='/dist/img/AdminLTELogo.png' alt='AdminLTELogo' height='60' width='60')
+  include ./includes/navbar.pug
+  include ./includes/sidebar.pug
+  .content-wrapper
+    // Content Header (Page header)
+    .content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1.m-0 User
+          // /.col
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active Dashboard
+        section.content
+            .container-fluid
+                .card.card-primary
+                    .card-header
+                        h3.card-title Add User
+                    form(action="/user/add" method="Post")
+                     .card-body
+                      .row
+                        .form-group.m-2
+                            label User Name
+                            input#name.form-control(type='text' placeholder='Enter user name' name="name")
+                        .form-group.m-2
+                            label User Role
+                            select#user_role.form-control( name="user_role")
+                                option(value="" selected disabled) User Role
+                                option(value="Adminstrator") Adminstrator
+                                option(value="Superviser") Superviser 
+                                option(value="Technician") Technician
+                        .form-group.m-2
+                            label User Email
+                            input#email.form-control(type='text' placeholder='Enter user email' name="email")
+                      .row
+                        .form-group.m-2
+                            label Work Station
+                            input#station.form-control(type='text' placeholder='Enter user Work station' name="work_station")
+                        .form-group.m-2
+                            label Department
+                            select#department.form-control( name="department")
+                                option(value="" selected disabled) Select Department
+                                option(value="Department 1") Department 1
+                                option(value="Department 2") Department 2 
+                                option(value="Department 3") Department 3
+                                option(value="Department 4") Department 4
+                        .form-group.m-2
+                            label Phone Number
+                            input#phone_number.form-control(type='tel' placeholder='Enter user phone' name="phone_number")
+                      .card-footer.bg-white
+                                button.btn.btn-primary(type='submit') Add User
+  include ./includes/footer.pug
+// ./wrapper
+include ./includes/scripts.pug

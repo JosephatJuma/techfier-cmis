@@ -1,15 +1,15 @@
 include ./includes/head.pug
-body
-    
+body.hold-transition.login-page(style="background-image:url('/dist/img/login.jpg'); background-repeat: no-repeat;background-size: cover;")
+     .wrapper.hold-transition.login-page(style="background-color:#000000c0;width:100%;", )
             .login-box
-              .login-logo
+              .login-logo.text-white
                   b Tech
                   | fier
               // /.login-logo
               .card
                 .card-body.login-card-body
                   p.login-box-msg Sign in to start your session
-                  form(action='../../index3.html' method='post')
+                  form(action='login' method='post')
                     .input-group.mb-3
                       input.form-control(type='email' placeholder='Email')
                       .input-group-append
@@ -34,11 +34,15 @@ body
                     a(href='forgot-password.html') I forgot my password
                   p.mb-0
                     a.text-center(href='register.html') Register a new membership
-                // /.login-card-body
-            // /.login-box
+                  .social-auth-links.text-center.mb-3
+                    p - OR -
+                    a.btn.btn-block.btn-success(href='#')
+                      i.fas.fa-id-card.mr-2
+                      |  Login with ID Number
+                    
 // jQuery
-script(src='/plugins/jquery/jquery.min.js')
+script(src='../../plugins/jquery/jquery.min.js')
 // Bootstrap 4
-script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+script(src='../../plugins/bootstrap/js/bootstrap.bundle.min.js')
 // AdminLTE App
-script(src='/dist/js/adminlte.min.js')
+script(src='../../dist/js/adminlte.min.js')

@@ -20,7 +20,7 @@ include ./includes/head.pug
        .col-12
         .card
           .card-header
-            h3.card-title DataTable with minimal features &amp; hover style
+            h3.card-title List of equpment added
           // /.card-header
           .card-body
             table#example2.table.table-bordered.table-hover
@@ -37,7 +37,8 @@ include ./includes/head.pug
                   td #{equipment.id}
                   td #{equipment.equipment_name}
                   td #{equipment.department}
-                  td #{equipment.barcode}  
+                  td #{equipment.barcode} 
+                  td #{equipment.description}  
               tfoot
                 tr
                   th Id

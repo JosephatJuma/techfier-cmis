@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true })); //allow body-parser
 const dashboard = require("./routes/dashboard");
 const login = require("./routes/login");
 const equipment = require("./routes/equpment");
+const user = require("./routes/user");
 
 //Template engine
 app.set("view engine", "pug");
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, "public"))); //set public dir for as
 app.use("/", dashboard);
 app.use("/login", login);
 app.use("/equipment", equipment);
+app.use("/user", user);
 
 app.listen(20000, "localhost", () => {
   console.log("App running on port 20000");
