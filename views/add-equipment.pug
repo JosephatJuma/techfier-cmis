@@ -10,7 +10,7 @@ include ./includes/head.pug
       .container-fluid
         .row.mb-2
           .col-sm-6
-            h1.m-0 Dashboard
+            h1.m-0 Equipment
           // /.col
           .col-sm-6
             ol.breadcrumb.float-sm-right
@@ -24,25 +24,34 @@ include ./includes/head.pug
                         h3.card-title Add new equipment
                     form(action="/equipment/add" method="Post")
                      .card-body
-                        .form-group
-                            label Equipment Name
-                            input#equipment_name.form-control(type='text' placeholder='Enter equipment name' name="equipment_name")
-                        .form-group
-                            label Department
-                            input#department.form-control(type='text' placeholder='Department' name="department")
-                        .form-group
+                      .row
+                          .form-group.m-2
+                              label Equipment ID
+                              input#id.form-control(type='text' placeholder='Enter equipment ID' name="id")
+                          .form-group.m-2
+                              label Equipment Name
+                              input#equipment_name.form-control(type='text' placeholder='Enter equipment name' name="equipment_name")
+                          .form-group.m-2
+                              label Department
+                              select#department.form-control( name="department")
+                                option(value="" selected disabled) Select Department
+                                option(value="Department 1") Department 1 
+                                option(value="Department 2") Department 2 
+                                option(value="Department 3") Department 3
+                                option(value="Department 4") Department 4
+                          .form-group.m-2
+                              label Barcode
+                              input#barcode.form-control(type='text' placeholder='Enter equipment ID' name="barcode")
+                          
+                      .row
+                        .form-group.m-2
                             label(for='exampleInputFile') Equipment Image
-                        .input-group
-                            .custom-file
-                                input#exampleInputFile.custom-file-input(type='file')
-                                label.custom-file-label(for='exampleInputFile') Choose file
-                            .input-group-append
-                                span.input-group-text Upload
-                        .form-check
-                            input#exampleCheck1.form-check-input(type='checkbox')
-                            label.form-check-label(for='exampleCheck1') Check me out
-                            // /.card-body
-                        .card-footer
+                            input#image.form-control(type='file' name="image")
+                        .form-group.m-2
+                            label Equipment Description
+                            textarea#description.form-control(name="description", cols="50", rows="5")
+                        
+                        .card-footer.bg-white
                                 button.btn.btn-primary(type='submit') Add equipment
   include ./includes/footer.pug
 // ./wrapper

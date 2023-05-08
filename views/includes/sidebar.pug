@@ -36,7 +36,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
               i.nav-icon.fas.fa-calendar
               p Schedule
           li.nav-item
-            a.nav-link(href='#' class= page=="Add Equipment" ? "active":"")
+            a.nav-link(href='#' class= page=="Add Equipment"|| page=="All Equipment" ?  "active":"")
               i.nav-icon.fa.fa-wrench
               p
                 | Equipment
@@ -47,32 +47,32 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
                   i.fas.fa-plus.nav-icon
                   p Add equipment
               li.nav-item
-                a.nav-link(href='pages/mailbox/compose.html')
-                  i.far.fa-circle.nav-icon
-                  p Manage equipment
+                a.nav-link(href='/equipment' class= page=="All Equipment" ? "active":"")
+                  i.far.fa-file.nav-icon
+                  p All equipment
               li.nav-item
                 a.nav-link(href='pages/mailbox/read-mail.html')
                   i.far.fa-circle.nav-icon
                   p Read
           li.nav-item
             a.nav-link(href='#')
-              i.nav-icon.fas.fa-book
+              i.nav-icon.fas.fa-users
               p
-                | Pages
+                | Users
                 i.fas.fa-angle-left.right
             ul.nav.nav-treeview
               li.nav-item
                 a.nav-link(href='pages/examples/invoice.html')
-                  i.far.fa-circle.nav-icon
-                  p Invoice
+                  i.fas.fa-user-plus.nav-icon
+                  p Register user
               li.nav-item
                 a.nav-link(href='pages/examples/profile.html')
                   i.far.fa-circle.nav-icon
-                  p Profile
+                  p Manage Users
               li.nav-item
                 a.nav-link(href='pages/examples/e-commerce.html')
                   i.far.fa-circle.nav-icon
-                  p E-commerce
+                  p Appoint users
               li.nav-item
                 a.nav-link(href='pages/examples/projects.html')
                   i.far.fa-circle.nav-icon
