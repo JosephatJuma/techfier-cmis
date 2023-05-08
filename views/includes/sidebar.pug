@@ -55,14 +55,14 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
                   i.far.fa-circle.nav-icon
                   p Read
           li.nav-item
-            a.nav-link(href='#')
+            a.nav-link(href='/users' class= page=="Users"|| page=="Add User" ?  "active":"")
               i.nav-icon.fas.fa-users
               p
                 | Users
                 i.fas.fa-angle-left.right
             ul.nav.nav-treeview
               li.nav-item
-                a.nav-link(href='pages/examples/invoice.html')
+                a.nav-link(href='/user/add' class=  page=="Add User" ?  "active":"")
                   i.fas.fa-user-plus.nav-icon
                   p Register user
               li.nav-item
@@ -103,166 +103,10 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
                   p Contact us
           li.nav-item
             a.nav-link(href='#')
-              i.nav-icon.far.fa-plus-square
-              p
-                | Extras
-                i.fas.fa-angle-left.right
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='#')
-                  i.far.fa-circle.nav-icon
-                  p
-                    | Login &amp; Register v1
-                    i.fas.fa-angle-left.right
-                ul.nav.nav-treeview
-                  li.nav-item
-                    a.nav-link(href='pages/examples/login.html')
-                      i.far.fa-circle.nav-icon
-                      p Login v1
-                  li.nav-item
-                    a.nav-link(href='pages/examples/register.html')
-                      i.far.fa-circle.nav-icon
-                      p Register v1
-                  li.nav-item
-                    a.nav-link(href='pages/examples/forgot-password.html')
-                      i.far.fa-circle.nav-icon
-                      p Forgot Password v1
-                  li.nav-item
-                    a.nav-link(href='pages/examples/recover-password.html')
-                      i.far.fa-circle.nav-icon
-                      p Recover Password v1
-              li.nav-item
-                a.nav-link(href='#')
-                  i.far.fa-circle.nav-icon
-                  p
-                    | Login &amp; Register v2
-                    i.fas.fa-angle-left.right
-                ul.nav.nav-treeview
-                  li.nav-item
-                    a.nav-link(href='pages/examples/login-v2.html')
-                      i.far.fa-circle.nav-icon
-                      p Login v2
-                  li.nav-item
-                    a.nav-link(href='pages/examples/register-v2.html')
-                      i.far.fa-circle.nav-icon
-                      p Register v2
-                  li.nav-item
-                    a.nav-link(href='pages/examples/forgot-password-v2.html')
-                      i.far.fa-circle.nav-icon
-                      p Forgot Password v2
-                  li.nav-item
-                    a.nav-link(href='pages/examples/recover-password-v2.html')
-                      i.far.fa-circle.nav-icon
-                      p Recover Password v2
-              li.nav-item
-                a.nav-link(href='pages/examples/lockscreen.html')
-                  i.far.fa-circle.nav-icon
-                  p Lockscreen
-              li.nav-item
-                a.nav-link(href='pages/examples/legacy-user-menu.html')
-                  i.far.fa-circle.nav-icon
-                  p Legacy User Menu
-              li.nav-item
-                a.nav-link(href='pages/examples/language-menu.html')
-                  i.far.fa-circle.nav-icon
-                  p Language Menu
-              li.nav-item
-                a.nav-link(href='pages/examples/404.html')
-                  i.far.fa-circle.nav-icon
-                  p Error 404
-              li.nav-item
-                a.nav-link(href='pages/examples/500.html')
-                  i.far.fa-circle.nav-icon
-                  p Error 500
-              li.nav-item
-                a.nav-link(href='pages/examples/pace.html')
-                  i.far.fa-circle.nav-icon
-                  p Pace
-              li.nav-item
-                a.nav-link(href='pages/examples/blank.html')
-                  i.far.fa-circle.nav-icon
-                  p Blank Page
-              li.nav-item
-                a.nav-link(href='starter.html')
-                  i.far.fa-circle.nav-icon
-                  p Starter Page
+              i.fas.fa-question-circle.nav-icon
+              p Help
           li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.fas.fa-search
-              p
-                | Search
-                i.fas.fa-angle-left.right
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='pages/search/simple.html')
-                  i.far.fa-circle.nav-icon
-                  p Simple Search
-              li.nav-item
-                a.nav-link(href='pages/search/enhanced.html')
-                  i.far.fa-circle.nav-icon
-                  p Enhanced
-          li.nav-header MISCELLANEOUS
-          li.nav-item
-            a.nav-link(href='iframe.html')
-              i.nav-icon.fas.fa-ellipsis-h
-              p Tabbed IFrame Plugin
-          li.nav-item
-            a.nav-link(href='https://adminlte.io/docs/3.1/')
-              i.nav-icon.fas.fa-file
-              p Documentation
-          li.nav-header MULTI LEVEL EXAMPLE
-          li.nav-item
-            a.nav-link(href='#')
-              i.fas.fa-circle.nav-icon
-              p Level 1
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.fas.fa-circle
-              p
-                | Level 1
-                i.right.fas.fa-angle-left
-            ul.nav.nav-treeview
-              li.nav-item
-                a.nav-link(href='#')
-                  i.far.fa-circle.nav-icon
-                  p Level 2
-              li.nav-item
-                a.nav-link(href='#')
-                  i.far.fa-circle.nav-icon
-                  p
-                    | Level 2
-                    i.right.fas.fa-angle-left
-                ul.nav.nav-treeview
-                  li.nav-item
-                    a.nav-link(href='#')
-                      i.far.fa-dot-circle.nav-icon
-                      p Level 3
-                  li.nav-item
-                    a.nav-link(href='#')
-                      i.far.fa-dot-circle.nav-icon
-                      p Level 3
-                  li.nav-item
-                    a.nav-link(href='#')
-                      i.far.fa-dot-circle.nav-icon
-                      p Level 3
-              li.nav-item
-                a.nav-link(href='#')
-                  i.far.fa-circle.nav-icon
-                  p Level 2
-          li.nav-item
-            a.nav-link(href='#')
-              i.fas.fa-circle.nav-icon
-              p Level 1
-          li.nav-header LABELS
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.far.fa-circle.text-danger
-              p.text Important
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.far.fa-circle.text-warning
-              p Warning
-          li.nav-item
-            a.nav-link(href='#')
-              i.nav-icon.far.fa-circle.text-info
-              p Informational
+            a.nav-link(href='/login/logout')
+              .btn.btn-success
+                i.nav-icon.fas.fa-right-from-bracket.text-info
+                p Logout
