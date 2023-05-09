@@ -9,14 +9,15 @@ body.hold-transition.login-page(style="background-image:url('/dist/img/login.jpg
               .card
                 .card-body.login-card-body
                   p.login-box-msg Sign in to start your session
+                  p.text-danger #{message}
                   form(action='login' method='post')
                     .input-group.mb-3
-                      input.form-control(type='email' placeholder='Email')
+                      input.form-control(type='email' placeholder='Email' name="email")
                       .input-group-append
                         .input-group-text
                           span.fas.fa-envelope
                     .input-group.mb-3
-                      input.form-control(type='password' placeholder='Password')
+                      input.form-control(type='password' placeholder='Password' name="password")
                       .input-group-append
                         .input-group-text
                           span.fas.fa-lock

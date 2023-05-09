@@ -4,6 +4,11 @@ const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const config = require("./.env/database");
+const session = require("express-session");
+
+//configure express session
+app.use(express.urlencoded({ extended: true }));
+app.use(session({ secret: "Token", resave: false, saveUninitialized: true }));
 
 //connect to database
 mongoose.connect(config.database, {
