@@ -1,17 +1,19 @@
 aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 0;left: 0;height: 100%;width: 250px; transition: transform 0.3s ease-in-out; overflow-y: auto;")
     // Brand Logo
-    a.brand-link(href='index3.html')
+    a.brand-link(href='/')
       img.brand-image.img-circle.elevation-3(src='/dist/img/AdminLTELogo.png' alt='AdminLTE Logo' style='opacity: 0.8')
       span.brand-text.font-weight-light Techfier
     // Sidebar
     .sidebar
       // Sidebar user panel (optional)
       .user-panel.mt-3.pb-3.mb-3.d-flex
-        .image
-          img.img-circle.elevation-2(src='/dist/img/user2-160x160.jpg' alt='User Image')
+        a(href="/user/profile")
+          .image
+            img.img-circle.elevation-2(src='/dist/img/user2-160x160.jpg' alt='User Image')
         .info
-          a.d-block(href='#') 
-            p #{user.name}
+          a.d-block(href='/user/profile') 
+            if user
+              p #{user.name}
       // SidebarSearch Form
       .form-inline
         .input-group(data-widget='sidebar-search')
@@ -106,6 +108,10 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
             a.nav-link(href='#')
               i.fas.fa-question-circle.nav-icon
               p Help
+          li.nav-item
+            a.nav-link(href='/user/profile'  class=  page=="My Profile" ?  "active":"")
+              i.fas.fa-user.nav-icon
+              p My Profile
           li.nav-item
             a.nav-link(href='#')
               .btn.btn-success(data-toggle="modal" data-target="#alertLogout")

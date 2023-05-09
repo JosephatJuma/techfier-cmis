@@ -7,11 +7,15 @@ router.get("/", requireAuth, async (req, res) => {
   res.render("equipment.pug", {
     page: "All Equipment",
     equipment_list: equipment_list,
+    user: req.session.user,
   });
 });
 
 router.get("/add", requireAuth, (req, res) => {
-  res.render("add-equipment.pug", { page: "Add Equipment" });
+  res.render("add-equipment.pug", {
+    page: "Add Equipment",
+    user: req.session.user,
+  });
 });
 
 router.post("/add", requireAuth, async (req, res) => {

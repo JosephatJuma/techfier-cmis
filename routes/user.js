@@ -10,7 +10,7 @@ router.get("/", requireAuth, (req, res) => {
 });
 
 router.get("/add", requireAuth, (req, res) => {
-  res.render("add-user.pug", { page: "Add User" });
+  res.render("add-user.pug", { page: "Add User", user: req.session.user });
 });
 
 router.post("/add", requireAuth, async (req, res) => {
@@ -30,5 +30,9 @@ router.post("/add", requireAuth, async (req, res) => {
     .catch((err) => {
       res.send(err.message);
     });
+});
+
+router.get("/profile", requireAuth, (req, res) => {
+  res.render("profile.pug", { page: "My Profile", user: req.session.user });
 });
 module.exports = router;
