@@ -8,6 +8,7 @@ router.get("/", requireAuth, async (req, res) => {
   res.render("dashboard.pug", {
     page: "Dashboard",
     number_of_equipments: equipments.length,
+    user: req.session.user,
   });
 });
 
