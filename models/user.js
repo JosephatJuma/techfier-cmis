@@ -9,6 +9,8 @@ const User = new mongoose.Schema({
   work_station: { type: String },
   date_added: { type: Date },
   phone_number: { type: String },
+  about: { type: String },
+  image: { type: String },
 });
 
 module.exports = mongoose.model("user", User);
