@@ -1,12 +1,298 @@
 include ./includes/head.pug
-.wrapper
-  .preloader.flex-column.justify-content-center.align-items-center
-    img.animation__shake(src='/dist/img/AdminLTELogo.png' alt='AdminLTELogo' height='60' width='60')
+body
   include ./includes/navbar.pug
+  // Main Sidebar Container
   include ./includes/sidebar.pug
-  
-  include ./includes/components/alert-logout.pug
+  .content-wrapper
+    // Content Header (Page header)
+    section.content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1 Profile
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active User Profile
+      // /.container-fluid
+    // Main content
+    section.content
+      .container-fluid
+        .row
+          .col-md-3
+            // Profile Image
+            .card.card-primary.card-outline
+              .card-body.box-profile
+                .text-center
+                  img.profile-user-img.img-fluid.img-circle(src='../../dist/img/user4-128x128.jpg' alt='User profile picture')
+                h3.profile-username.text-center #{user.name}
+                p.text-muted.text-center #{user.user_role}
+                ul.list-group.list-group-unbordered.mb-3
+                  li.list-group-item
+                    b Followers
+                    a.float-right 1,322
+                  li.list-group-item
+                    b Following
+                    a.float-right 543
+                  li.list-group-item
+                    b Friends
+                    a.float-right 13,287
+                a.btn.btn-primary.btn-block(href='#')
+                  b Follow
+              // /.card-body
+            // /.card
+            // About Me Box
+            .card.card-primary
+              .card-header
+                h3.card-title About Me
+              // /.card-header
+              .card-body
+                strong
+                  i.fas.fa-book.mr-1
+                  |  About 
+                p.text-muted
+                  if user.about 
+                    p #{user.about}
+                  else
+                    p No About
+                hr
+                strong
+                  i.fas.fa-map-marker-alt.mr-1
+                  |  Work Station
+                p.text-muted #{user.work_station}
+                hr
+                strong
+                  i.fas.fa-pencil-alt.mr-1
+                  |  User Role
+                p.text-muted
+                  span.tag.tag-danger #{user.user_role}
+                 
+                hr
+                strong
+                  i.far.fa-file-alt.mr-1
+                  |  Notes
+                p.text-muted
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.
+              // /.card-body
+            // /.card
+          // /.col
+          .col-md-9
+            .card
+              .card-header.p-2
+                ul.nav.nav-pills
+                  li.nav-item
+                    a.nav-link.active(href='#activity' data-toggle='tab') Activity
+                  li.nav-item
+                    a.nav-link(href='#timeline' data-toggle='tab') Timeline
+                  li.nav-item
+                    a.nav-link(href='#settings' data-toggle='tab') Settings
+              // /.card-header
+              .card-body
+                .tab-content
+                  #activity.active.tab-pane
+                    // Post
+                    .post
+                      .user-block
+                        img.img-circle.img-bordered-sm(src='../../dist/img/user1-128x128.jpg' alt='user image')
+                        span.username
+                          a(href='#') Jonathan Burke Jr.
+                          a.float-right.btn-tool(href='#')
+                            i.fas.fa-times
+                        span.description Shared publicly - 7:30 PM today
+                      // /.user-block
+                      p
+                        | Lorem ipsum represents a long-held tradition for designers,
+                        | typographers and the like. Some people hate it and argue for
+                        | its demise, but others ignore the hate as they create awesome
+                        | tools to help create filler text for everyone from bacon lovers
+                        | to Charlie Sheen fans.
+                      p
+                        a.link-black.text-sm.mr-2(href='#')
+                          i.fas.fa-share.mr-1
+                          |  Share
+                        a.link-black.text-sm(href='#')
+                          i.far.fa-thumbs-up.mr-1
+                          |  Like
+                        span.float-right
+                          a.link-black.text-sm(href='#')
+                            i.far.fa-comments.mr-1
+                            |  Comments (5)
+                      input.form-control.form-control-sm(type='text' placeholder='Type a comment')
+                    // /.post
+                    // Post
+                    .post.clearfix
+                      .user-block
+                        img.img-circle.img-bordered-sm(src='../../dist/img/user7-128x128.jpg' alt='User Image')
+                        span.username
+                          a(href='#') Sarah Ross
+                          a.float-right.btn-tool(href='#')
+                            i.fas.fa-times
+                        span.description Sent you a message - 3 days ago
+                      // /.user-block
+                      p
+                        | Lorem ipsum represents a long-held tradition for designers,
+                        | typographers and the like. Some people hate it and argue for
+                        | its demise, but others ignore the hate as they create awesome
+                        | tools to help create filler text for everyone from bacon lovers
+                        | to Charlie Sheen fans.
+                      form.form-horizontal
+                        .input-group.input-group-sm.mb-0
+                          input.form-control.form-control-sm(placeholder='Response')
+                          .input-group-append
+                            button.btn.btn-danger(type='submit') Send
+                    // /.post
+                    // Post
+                    .post
+                      .user-block
+                        img.img-circle.img-bordered-sm(src='../../dist/img/user6-128x128.jpg' alt='User Image')
+                        span.username
+                          a(href='#') Adam Jones
+                          a.float-right.btn-tool(href='#')
+                            i.fas.fa-times
+                        span.description Posted 5 photos - 5 days ago
+                      // /.user-block
+                      .row.mb-3
+                        .col-sm-6
+                          img.img-fluid(src='../../dist/img/photo1.png' alt='Photo')
+                        // /.col
+                        .col-sm-6
+                          .row
+                            .col-sm-6
+                              img.img-fluid.mb-3(src='../../dist/img/photo2.png' alt='Photo')
+                              img.img-fluid(src='../../dist/img/photo3.jpg' alt='Photo')
+                            // /.col
+                            .col-sm-6
+                              img.img-fluid.mb-3(src='../../dist/img/photo4.jpg' alt='Photo')
+                              img.img-fluid(src='../../dist/img/photo1.png' alt='Photo')
+                            // /.col
+                          // /.row
+                        // /.col
+                      // /.row
+                      p
+                        a.link-black.text-sm.mr-2(href='#')
+                          i.fas.fa-share.mr-1
+                          |  Share
+                        a.link-black.text-sm(href='#')
+                          i.far.fa-thumbs-up.mr-1
+                          |  Like
+                        span.float-right
+                          a.link-black.text-sm(href='#')
+                            i.far.fa-comments.mr-1
+                            |  Comments (5)
+                      input.form-control.form-control-sm(type='text' placeholder='Type a comment')
+                    // /.post
+                  // /.tab-pane
+                  #timeline.tab-pane
+                    // The timeline
+                    .timeline.timeline-inverse
+                      // timeline time label
+                      .time-label
+                        span.bg-danger
+                          | 10 Feb. 2014
+                      // /.timeline-label
+                      // timeline item
+                      div
+                        i.fas.fa-envelope.bg-primary
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  12:05
+                          h3.timeline-header
+                            a(href='#') Support Team
+                            |  sent you an email
+                          .timeline-body
+                            | Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                            | weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                            | jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                            | quora plaxo ideeli hulu weebly balihoo...
+                          .timeline-footer
+                            a.btn.btn-primary.btn-sm(href='#') Read more
+                            a.btn.btn-danger.btn-sm(href='#') Delete
+                      // END timeline item
+                      // timeline item
+                      div
+                        i.fas.fa-user.bg-info
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  5 mins ago
+                          h3.timeline-header.border-0
+                            a(href='#') Sarah Young
+                            |  accepted your friend request
+                      // END timeline item
+                      // timeline item
+                      div
+                        i.fas.fa-comments.bg-warning
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  27 mins ago
+                          h3.timeline-header
+                            a(href='#') Jay White
+                            |  commented on your post
+                          .timeline-body
+                            | Take me to your leader!
+                            | Switzerland is small and neutral!
+                            | We are more like Germany, ambitious and misunderstood!
+                          .timeline-footer
+                            a.btn.btn-warning.btn-flat.btn-sm(href='#') View comment
+                      // END timeline item
+                      // timeline time label
+                      .time-label
+                        span.bg-success
+                          | 3 Jan. 2014
+                      // /.timeline-label
+                      // timeline item
+                      div
+                        i.fas.fa-camera.bg-purple
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  2 days ago
+                          h3.timeline-header
+                            a(href='#') Mina Lee
+                            |  uploaded new photos
+                          .timeline-body
+                            img(src='https://placehold.it/150x100' alt='...')
+                            img(src='https://placehold.it/150x100' alt='...')
+                            img(src='https://placehold.it/150x100' alt='...')
+                            img(src='https://placehold.it/150x100' alt='...')
+                      // END timeline item
+                      div
+                        i.far.fa-clock.bg-gray
+                  // /.tab-pane
+                  #settings.tab-pane
+                    form.form-horizontal
+                      .form-group.row
+                        label.col-sm-2.col-form-label(for='inputName') Name
+                        .col-sm-10
+                          input#inputName.form-control(type='text' placeholder='Name' value=user.name name="name")
+                      .form-group.row
+                        label.col-sm-2.col-form-label(for='inputEmail') Email
+                        .col-sm-10
+                          input#inputEmail.form-control(type='email' placeholder='Email' value=user.email name="email")
+                      .form-group.row
+                        label.col-sm-2.col-form-label(for='inputName2') Role
+                        .col-sm-10
+                          input#inputName2.form-control(type='text' placeholder='User Role' name="user_role" value=user.user_role readonly)
+                      .form-group.row
+                        label.col-sm-2.col-form-label(for='inputExperience') About
+                        .col-sm-10
+                          textarea#inputExperience.form-control(placeholder='About' name="about" value=user.about maxlength="100")
+                      .form-group.row
+                        label.col-sm-2.col-form-label(for='inputSkills') Phone Number
+                        .col-sm-10
+                          input#inputSkills.form-control(type='text' placeholder='Phone number' value=user.phone_number name="phone_number")
+                      .form-group.row
+                        .offset-sm-2.col-sm-10
+                          .checkbox
+                            label
+                              input(type='checkbox')
+                              |  I confirm that this information is correct
+                      .form-group.row
+                        .offset-sm-2.col-sm-10
+                          button.btn.btn-danger(type='submit') Update
+    include ./includes/components/alert-logout.pug
   include ./includes/footer.pug
-  
-// ./wrapper
 include ./includes/scripts.pug
