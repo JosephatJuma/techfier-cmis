@@ -3,7 +3,7 @@ const router = express.Router();
 const requireAuth = require("../middleware/auth");
 
 router.get("/", requireAuth, (req, res) => {
-  res.send("Department");
+  res.render("department.pug", { page: "Department", user: req.session.user });
 });
 
 router.get("/add", requireAuth, (req, res) => {
