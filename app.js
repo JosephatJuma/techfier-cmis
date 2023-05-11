@@ -32,6 +32,7 @@ const dashboard = require("./routes/dashboard");
 const login = require("./routes/login");
 const equipment = require("./routes/equpment");
 const user = require("./routes/user");
+const department = require("./routes/deaprtment");
 
 //Template engine
 app.set("view engine", "pug");
@@ -43,6 +44,7 @@ app.use("/", dashboard);
 app.use("/login", login);
 app.use("/equipment", equipment);
 app.use("/user", user);
+app.use("/department", department);
 
 app.listen(20000, "localhost", () => {
   console.log("App running on port 20000");
