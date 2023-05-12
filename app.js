@@ -46,6 +46,9 @@ app.use("/equipment", equipment);
 app.use("/user", user);
 app.use("/department", department);
 
-app.listen(20000, "localhost", () => {
+// Set the server name
+app.set('serverName', 'techfier')
+
+app.listen(20000, () => {
   console.log("App running on port 20000");
 });
