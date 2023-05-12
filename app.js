@@ -49,6 +49,6 @@ app.use("/department", department);
 // Set the server name
 app.set('serverName', 'techfier')
 
-app.listen(20000, () => {
+app.listen(20000, "0.0.0.0",() => {
   console.log("App running on port 20000");
 });
