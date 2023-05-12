@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const config = require("./.env/database");
 const session = require("express-session");
-
+const hostname = "0.0.0.0";
 //configure express session
 app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "Token", resave: false, saveUninitialized: true }));
@@ -47,8 +47,8 @@ app.use("/user", user);
 app.use("/department", department);
 
 // Set the server name
-app.set('serverName', 'techfier')
+app.set("serverName", "techfier");
 
-app.listen(20000, "0.0.0.0",() => {
+app.listen(3000, hostname, () => {
   console.log("App running on port 20000");
 });
