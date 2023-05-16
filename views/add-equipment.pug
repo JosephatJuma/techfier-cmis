@@ -22,39 +22,45 @@ include ./includes/head.pug
                 .card.card-primary
                     .card-header
                         h3.card-title Add new equipment
-                    form(action="/equipment/add" method="Post")
+                    form#equipment_form(onsubmit="return validateEquipmentForm();" action="/equipment/add" method="Post" enctype="multipart/form-data")
                      .card-body
                       .row
                           .form-group.m-2
-                              label Equipment ID
+                              label Equipment ID*
                               input#id.form-control(type='text' placeholder='Enter equipment ID' name="id")
+                              p#id_err.text-danger
                           .form-group.m-2
-                              label Equipment Name
+                              label Equipment Name*
                               input#equipment_name.form-control(type='text' placeholder='Enter equipment name' name="equipment_name")
+                              p#name_err.text-danger
                           .form-group.m-2
-                              label Department
+                              label Department*
                               select#department.form-control( name="department")
                                 option(value="" selected disabled) Select Department
-                                option(value="Department 1") Department 1 
-                                option(value="Department 2") Department 2 
-                                option(value="Department 3") Department 3
-                                option(value="Department 4") Department 4
+                                option(value="Spinning") Spinning 
+                                option(value="Knitting") Knitting
+                                option(value="Dyeing") Dyeing
+                                option(value="Printing") Printing
+                                option(value="Cutting") Cutting
+                                option(value="Garment") Garment
+                              p#department_err.text-danger
                           .form-group.m-2
                               label Barcode
                               input#barcode.form-control(type='text' placeholder='Enter equipment ID' name="barcode")
-                          
                       .row
-                        .form-group.m-2
+                          .form-group.m-2
+                            label Equipment Description*
+                            textarea#description.form-control(name="description", cols="50", rows="3")
+                            p#description_err.text-danger
+                          .form-group.m-2
                             label(for='exampleInputFile') Equipment Image
                             input#image.form-control(type='file' name="image")
-                        .form-group.m-2
-                            label Equipment Description
-                            textarea#description.form-control(name="description", cols="50", rows="5")
-                        
-                        .card-footer.bg-white
+                            p#image_err.text-danger        
+                      .card-footer.bg-white
                                 button.btn.btn-primary(type='submit') Add equipment
   include ./includes/components/alert-logout.pug
   include ./includes/footer.pug
   
 // ./wrapper
 include ./includes/scripts.pug
+script(src="/dist/js/validations.js") 
