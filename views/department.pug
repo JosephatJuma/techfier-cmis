@@ -4,6 +4,54 @@ include ./includes/head.pug
         img.animation__shake(src='/dist/img/AdminLTELogo.png' alt='AdminLTELogo' height='60' width='60')
     include ./includes/navbar.pug
     include ./includes/sidebar.pug
+.content-wrapper
+    // Content Header (Page header)
+    .content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1.m-0 User
+          // /.col
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active Dashboard
+        section.content
+            .container-fluid
+                .card.card-primary
+                    .card-header
+                     h3.card-title Departments
+                     p #{message}
+                        
+                    .row#departments
+                        each department in departments 
+                         .form-group.m-2
+                            button.btn.bg-warning 
+                                p  #{department.name}
+                        .form-group.m-2
+                            button.btn.bg-primary(onclick="return addNewDepartment();") 
+                                i.fa.fa-plus
+                            
+                    form#department_form(action="/department" method="Post" onsubmit="return validate();" style="display:none;")
+                     .card-body
+                      button.btn.bg-primary(onclick="return cancelAdd();") 
+                        i.fa.fa-minus
+                      .row
+                        .form-group.m-2
+                            label Department Name
+                            input#name.form-control(type='text' placeholder='Enter department name' name="name")
+                            p#nameErr.text-danger
+                      .row
+                         .form-group.m-4
+                            button.btn.btn-primary(type='submit' value="Add" style="display:flex;")
+                                i.fa.fa-plus
+                                p Add Department
+                 
+                    
+                            
     include ./includes/components/alert-logout.pug
 include ./includes/footer.pug
 include ./includes/scripts.pug
+script(src="/dist/js/validate_department.js")  
+        

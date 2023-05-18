@@ -6,6 +6,7 @@ const Equipment = new mongoose.Schema({
   department: { type: String },
   barcode: { type: String },
   description: { type: String },
+  parts: { type: Object },
 });
 
 module.exports = mongoose.model("equipment", Equipment);

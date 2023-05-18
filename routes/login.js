@@ -11,9 +11,8 @@ router.post("/", async (req, res) => {
   if (user) {
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if (!validPass) {
-      const message = "Wrong Password!";
       res.render("login.pug", {
-        message: message,
+        message: "Wrong Password!",
         id: req.body.id,
         password: req.body.password,
       });
@@ -22,7 +21,11 @@ router.post("/", async (req, res) => {
       res.redirect("/");
     }
   } else {
-    res.send("No user");
+    res.render("login.pug", {
+      message: "No user found with email provided!",
+      id: req.body.id,
+      password: req.body.password,
+    });
   }
 });
 

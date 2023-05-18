@@ -23,8 +23,9 @@ include ./includes/head.pug
             h3.card-title List of equpment added
           // /.card-header
           .card-body
-            table#example2.table.table-bordered.table-hover
-              thead
+           if equipment_list.length>0
+             table#example2.table.table-bordered.table-hover
+              thead.bg-primary
                 tr
                   th Id
                   th Name
@@ -39,13 +40,12 @@ include ./includes/head.pug
                   td #{equipment.department}
                   td #{equipment.barcode} 
                   td #{equipment.description}  
-              tfoot
-                tr
-                  th Id
-                  th Name
-                  th Department(s)
-                  th Barcode
-                  th Description
+              
+           else
+              p There is no equipment added 
+              a(href="/equipment/add") 
+                .btn.btn-primary 
+                  i.fa.fa-plus    
   include ./includes/components/alert-logout.pug                
   include ./includes/footer.pug
 include ./includes/scripts.pug

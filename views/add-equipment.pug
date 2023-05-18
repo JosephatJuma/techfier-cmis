@@ -22,7 +22,8 @@ include ./includes/head.pug
                 .card.card-primary
                     .card-header
                         h3.card-title Add new equipment
-                    form#equipment_form(onsubmit="return validateEquipmentForm();" action="/equipment/add" method="Post" enctype="multipart/form-data")
+                    form#equipment_form(onsubmit="return validateEquipmentForm();" action="/equipment/add" method="Post")
+                     //- enctype="multipart/form-data"
                      .card-body
                       .row
                           .form-group.m-2
@@ -37,12 +38,8 @@ include ./includes/head.pug
                               label Department*
                               select#department.form-control( name="department")
                                 option(value="" selected disabled) Select Department
-                                option(value="Spinning") Spinning 
-                                option(value="Knitting") Knitting
-                                option(value="Dyeing") Dyeing
-                                option(value="Printing") Printing
-                                option(value="Cutting") Cutting
-                                option(value="Garment") Garment
+                                each department in departments
+                                  option(value=department.name) #{department.name}
                               p#department_err.text-danger
                           .form-group.m-2
                               label Barcode
@@ -53,7 +50,7 @@ include ./includes/head.pug
                             textarea#description.form-control(name="description", cols="50", rows="3")
                             p#description_err.text-danger
                           .form-group.m-2
-                            label(for='exampleInputFile') Equipment Image
+                            label(for='exampleInputFile') Equipment Image*
                             input#image.form-control(type='file' name="image")
                             p#image_err.text-danger        
                       .card-footer.bg-white

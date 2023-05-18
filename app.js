@@ -48,7 +48,7 @@ app.use("/department", department);
 
 // Set the server name
 app.set("serverName", "techfier");
-
-app.listen(3000, hostname, () => {
-  console.log("App running on port 20000");
+const port = 3000;
+app.listen(port, hostname, () => {
+  console.log(`App running on port ${port}`);
 });
