@@ -27,11 +27,20 @@ router.post("/add", requireAuth, async (req, res) => {
   await equipment
     .save()
     .then(() => {
-      res.send(req.body);
+      res.redirect(`/equipment/parts?id=${req.body.id}`);
     })
     .catch((err) => {
       res.send(err.message);
     });
+});
+
+router.get("/parts", requireAuth, async (req, res) => {
+  res.render("equipment-parts.pug", { page: "Parts" });
+});
+
+router.post("/parts", requireAuth, (req, res) => {
+  console.log(req.params);
+  res.send(req.body);
 });
 
 module.exports = router;

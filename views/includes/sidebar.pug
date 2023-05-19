@@ -39,7 +39,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
               i.nav-icon.fas.fa-calendar
               p Schedule
           li.nav-item
-            a.nav-link(href='#' class= page=="Add Equipment"|| page=="All Equipment" ?  "active":"")
+            a.nav-link(href='#' class= page=="Add Equipment"|| page=="All Equipment" || page=="Parts" ?  "active":"")
               i.nav-icon.fa.fa-wrench
               p
                 | Equipment
@@ -54,9 +54,9 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
                   i.far.fa-file.nav-icon
                   p All equipment
               li.nav-item
-                a.nav-link(href='pages/mailbox/read-mail.html')
-                  i.far.fa-circle.nav-icon
-                  p Read
+                a.nav-link(href='/equipment/parts' class= page=="Parts" ? "active":"")
+                  i.far.fa-parts.nav-icon
+                  p Equiment Parts
           li.nav-item
             a.nav-link(href='/users' class= page=="Users"|| page=="Add User" ?  "active":"")
               i.nav-icon.fas.fa-users

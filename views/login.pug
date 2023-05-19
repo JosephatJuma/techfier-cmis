@@ -6,7 +6,7 @@ body.hold-transition.login-page(style="background-image:url('/dist/img/login.jpg
                   b Tech
                   | fier
               // /.login-logo
-              .card
+              .card#email_form
                 .card-body.login-card-body
                   p.login-box-msg Sign in to start your session
                   p.text-danger #{message}
@@ -35,13 +35,46 @@ body.hold-transition.login-page(style="background-image:url('/dist/img/login.jpg
                     a(href='forgot-password.html') I forgot my password
                   .social-auth-links.text-center.mb-3
                     p - OR -
-                    a.btn.btn-block.btn-success(href='#')
+                    a.btn.btn-block.btn-success(onclick="return showIdForm();")
                       i.fas.fa-id-card.mr-2
                       |  Login with ID Number
+              .card#id_form(style="display:none;")
+                .card-body.login-card-body
+                  p.login-box-msg Sign in to start your session
+                  p.text-danger #{message}
+                  form(action='login/id' method='post')
+                    .input-group.mb-3
+                      input#id.form-control(type='text' placeholder='User ID' name="id")
+                      .input-group-append
+                        .input-group-text
+                          span.fas.fa-id-card
+                    .input-group.mb-2
+                      input#password.form-control(type='password' placeholder='Password' name="password")
+                      .input-group-append
+                        .input-group-text
+                          span.fas.fa-lock
+                    .row
+                      .col-8
+                        .icheck-success
+                          input#remember(type='checkbox')
+                          label(for='remember')  Show Password
+                      // /.col
+                      .col-4
+                        button.btn.btn-success.btn-block(type='submit')
+                          | Sign In
+                      // /.col
+                  p.mb-1
+                    a(href='forgot-password.html') I forgot my password
+                  .social-auth-links.text-center.mb-3
+                    p - OR -
+                    a.btn.btn-block.btn-success(onclick="return showEmailForm();")
+                      i.fas.fa-envelope.mr-2
+                      |  Login with Email
                     
 // jQuery
-script(src='../../plugins/jquery/jquery.min.js')
+script(src='/plugins/jquery/jquery.min.js')
 // Bootstrap 4
-script(src='../../plugins/bootstrap/js/bootstrap.bundle.min.js')
+script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
 // AdminLTE App
-script(src='../../dist/js/adminlte.min.js')
+script(src='/dist/js/adminlte.min.js')
+script(src='/dist/js/login.js')

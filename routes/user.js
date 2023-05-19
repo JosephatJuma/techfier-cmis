@@ -3,14 +3,19 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 const requireAuth = require("../middleware/auth");
-
+const Department = require("../models/department");
 const userId = require("../middleware/generateUserId"); //user id
 router.get("/", requireAuth, (req, res) => {
   res.send("User");
 });
 
-router.get("/add", requireAuth, (req, res) => {
-  res.render("add-user.pug", { page: "Add User", user: req.session.user });
+router.get("/add", requireAuth, async (req, res) => {
+  const departments = await Department.find();
+  res.render("add-user.pug", {
+    page: "Add User",
+    user: req.session.user,
+    departments: departments,
+  });
 });
 
 router.post("/add", requireAuth, async (req, res) => {

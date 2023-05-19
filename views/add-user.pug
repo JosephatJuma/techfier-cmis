@@ -45,11 +45,9 @@ include ./includes/head.pug
                         .form-group.m-2
                             label Department
                             select#department.form-control( name="department")
-                                option(value="" selected disabled) Select Department
-                                option(value="Department 1") Department 1
-                                option(value="Department 2") Department 2 
-                                option(value="Department 3") Department 3
-                                option(value="Department 4") Department 4
+                                option(value="" selected disabled) Department
+                                each department in departments
+                                  option(value=department.name ) #{department.name}
                         .form-group.m-2
                             label Phone Number
                             input#phone_number.form-control(type='tel' placeholder='Enter user phone' name="phone_number")
