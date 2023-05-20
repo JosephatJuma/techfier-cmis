@@ -1,0 +1,15 @@
+#alertDelete.modal.fade(tabindex='-1' role='dialog' aria-labelledby='alertLogoutLabel' aria-hidden='true')
+      .modal-dialog()
+        .modal-content
+          .modal-header
+            h5.modal-title Are you sure you want to Delete this equipment?
+            button.close.btn(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true' style="font-size:20px;") &times;
+          .modal-body
+            | Click Yes button to delete or cancel button to return
+          .modal-footer
+            button.btn.btn-success(type='button' data-dismiss='modal') Cancel
+            a(href=`/equipment/delete/${equipment._id}` )
+              button.btn.btn-warning.text-white(type='submit') Delete
+              // Button trigger modal
+              

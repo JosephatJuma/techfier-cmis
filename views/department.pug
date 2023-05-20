@@ -27,26 +27,26 @@ include ./includes/head.pug
                     .row#departments
                         each department in departments 
                          .form-group.m-2
-                            button.btn.bg-warning 
+                            button.btn.btn-warning
                                 p  #{department.name}
                         .form-group.m-2
                             button.btn.bg-primary(onclick="return addNewDepartment();") 
                                 i.fa.fa-plus
+                                
                             
                     form#department_form(action="/department" method="Post" onsubmit="return validate();" style="display:none;")
                      .card-body
-                      button.btn.bg-primary(onclick="return cancelAdd();") 
-                        i.fa.fa-minus
-                      .row
-                        .form-group.m-2
+                        button.btn.bg-primary(onclick="return cancelAdd();") 
+                            i.fa.fa-minus
+                        .row
+                          .form-group.m-2
                             label Department Name
                             input#name.form-control(type='text' placeholder='Enter department name' name="name")
                             p#nameErr.text-danger
-                      .row
-                         .form-group.m-4
+                        .card-footer.bg-white
                             button.btn.btn-primary(type='submit' value="Add" style="display:flex;")
-                                i.fa.fa-plus
-                                p Add Department
+                                    i.fa.fa-plus
+                                    p Add Department
                  
                     
                             

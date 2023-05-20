@@ -1,0 +1,45 @@
+include ./includes/head.pug
+.wrapper
+    .preloader.flex-column.justify-content-center.align-items-center
+        img.animation__shake(src='/dist/img/AdminLTELogo.png' alt='AdminLTELogo' height='60' width='60')
+    include ./includes/navbar.pug
+    include ./includes/sidebar.pug
+.content-wrapper
+    // Content Header (Page header)
+    .content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1.m-0 #{action}
+          // /.col
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active Dashboard
+        section.content
+            .container-fluid
+                .card.card-success
+                    .card-header
+                     h3.card-title Success
+                    .card-body
+                     p #{message}
+                     
+                     .form-group.m-2
+                        a(href=`${go_to_page}`) 
+                         button.btn.btn-warning Alright 
+                         
+
+                        
+
+                                
+                            
+                    
+                 
+                    
+                            
+    include ./includes/components/alert-logout.pug
+include ./includes/footer.pug
+include ./includes/scripts.pug
+  
+        

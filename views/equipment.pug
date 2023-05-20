@@ -32,15 +32,20 @@ include ./includes/head.pug
                   th Department(s)
                   th Barcode
                   th Description
+                  th Action
               tbody
                each equipment in equipment_list
-                tr
-                  td #{equipment.id}
-                  td #{equipment.equipment_name}
-                  td #{equipment.department}
-                  td #{equipment.barcode} 
-                  td #{equipment.description}  
-              
+                
+                    tr
+                      td #{equipment.id}
+                      td #{equipment.equipment_name}
+                      td #{equipment.department}
+                      td #{equipment.barcode} 
+                      td #{equipment.description}  
+                      td 
+                        a(href=`/equipment/details/${equipment._id}`) 
+                          .btn()
+                            i.fa.fa-link     
            else
               p There is no equipment added 
               a(href="/equipment/add") 

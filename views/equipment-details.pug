@@ -1,0 +1,207 @@
+include ./includes/head.pug
+body 
+ .wrapper
+    .preloader.flex-column.justify-content-center.align-items-center
+        img.animation__shake(src='/dist/img/AdminLTELogo.png' alt='AdminLTELogo' height='60' width='60')
+    include ./includes/navbar.pug
+    include ./includes/sidebar.pug
+ .content-wrapper
+    // Content Header (Page header)
+    .content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1.m-0 Equipment
+          // /.col
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active Dashboard
+       
+                
+        
+        .card
+              .card-header.p-2
+                ul.nav.nav-pills.row(style="display:flex;")
+                  li.nav-item
+                    a.nav-link.active(href='#details' data-toggle='tab') Details
+                  li.nav-item
+                    a.nav-link(href='#edit' data-toggle='tab') Edit
+                  li.nav-item
+                    a.nav-link(href='#parts' data-toggle='tab') Parts Info
+                  li.nav-item
+                    a.nav-link(href='#history' data-toggle='tab') History
+                  li.nav-item
+                    a.nav-link(href='#techincal_data' data-toggle='tab') Technical data
+                  li.nav-item
+                    a.nav-link(href='#checks' data-toggle='tab') Normal PM’s and checks
+                  li.nav-item
+                    a.nav-link(href='#schematics' data-toggle='tab') Schematics
+                  li.nav-item
+                    a.nav-link(href='# vendor_files' data-toggle='tab')  Vendor files
+                  li.nav-item
+                    a.nav-link(href='# technical_files' data-toggle='tab')  Technical files
+                  
+              // /.card-header
+              .card-body
+                .tab-content   
+                  #details.active.tab-pane
+                    // The timeline
+                    .timeline.timeline-inverse
+                      // timeline time label
+                      .time-label
+                        span.bg-success.m2
+                          | #{equipment.equipment_name}
+                        span.bg-secondary
+                          | #{equipment.date_added}
+                      // /.timeline-label
+                      // timeline item
+                      div
+                        -var time = new Date()-new Date(equipment.date_added)
+                        i.fas.fa-info.bg-primary
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  #{time} hours ago
+                          h3.timeline-header
+                            a(href='#') Description
+                          .timeline-body
+                            | #{equipment.description}
+                          .timeline-footer
+                            a.btn.btn-warning.btn-sm(href='#') Disable
+                            a.btn.btn-danger.btn-sm(data-toggle="modal" data-target="#alertDelete") Delete
+                      div
+                        i.fas.fa-user.bg-info
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  #{new Date().getMinutes(time)} mins ago
+                          h3.timeline-header.border-0
+                            a(href='#') Added By 
+                            | #{equipment.added_by}
+                      
+                      div
+                        i.fas.fa-camera.bg-purple
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  2 days ago
+                          h3.timeline-header
+                            a(href='#') Equipment 
+                            | Image
+                          .timeline-body
+                            img(src='/dist/img/photo1.png' alt='...' width="200px")
+                            
+                      div
+                        i.far.fa-clock.bg-gray
+                  // /.tab-pane
+                  #edit.tab-pane
+                    form.form-horizontal(action=`/equipment/edit/${equipment._id}` method="post")
+                     .row
+                      .form-group.m2
+                        label(for='inputName') Equipment Name
+                          input#equipment_name.form-control(type='text' placeholder='Name' value=equipment.equipment_name name="equipment_name")
+                      .form-group-m2
+                        label(for='inputEmail') Department of the equipment
+                          select#department.form-control(name="department")
+                           option(value=equipment.department selected ) #{equipment.department}
+                           each department in departments 
+                            if department.name !== equipment.department
+                                option(value=department.name) #{department.name}                  
+                     .row
+                      .form-group.m2
+                        label(for='inputExperience') Description 
+                          textarea#description.form-control(placeholder='Description' name="description" cols="45") #{equipment.description}
+                     .card-footer
+                          button.btn.btn-secondary(type='submit') Update 
+                  #parts.tab-pane 
+                      if !equipment.parts
+                          p No parts added
+                      else 
+                        each part in equipment.parts
+                         .row
+                           div#accordion.col-12
+                                .card.card-primary.card-outline
+                                    a.d-block.w-100(data-toggle="collapse" href=`#collapse${part.stock_number}`)
+                                       .card-header
+                                            .card-title.w-100
+                                                h6 #{part.part_name}
+                                                 
+                                    .collapse(data-parent="#accordion" id=`collapse${part.stock_number}`)
+                                      .card-body.bg-light
+                                        p  #{part.description}     
+                                    
+                                    
+                                 
+                      button#add_btn.btn.btn-primary(type='submit' onclick="return addNewPart();") Add new part 
+                        i.fa.fa-plus
+                      button#cancel_btn.btn.btn-primary(type='submit' onclick="return cancelAddNewPart();" style="display:none;") Cancel 
+                        i.fa.fa-times
+                      
+                    
+                  #history.tab-pane 
+                    .timeline.timeline-inverse
+                      div
+                        i.far.fa-clock.bg-success
+                        .timeline-item
+                          span.time
+                            i.far.fa-clock
+                            |  27 mins ago
+                          h3.timeline-header
+                            a(href='#') Equipment History
+                            |  
+                          .timeline-body
+                            | Histort Here
+                          .timeline-footer
+                            a.btn.btn-primary.btn-flat.btn-sm(href='#') View History
+        .card#parts_form(style="display:none;")
+            .card-header
+              h3.card-title Add new part
+              .card-tools
+                button.btn.btn-tool(data-card-widget="collapse" title="Collapse" type="button")
+                 i.fas.fa-minus
+                button.btn.btn-tool(data-card-widget="remove" title="Remove" type="button" )
+                 i.fas.fa-times(onclick="return cancelAddNewPart();")
+            .card-body
+                form#form(action=`/equipment/parts/${equipment._id}` method="Post" onsubmit="return validatePartsForm();"  )
+                 .row
+                    .form-group.m-2
+                        label Part Name*
+                        input#part_name.form-control(type='text' placeholder='Enter part name' name="part_name")
+                        p#nameErr.text-danger
+                    .form-group.m-2
+                        label Stock Number*
+                        input#stock_number.form-control(type='number' placeholder='Enter stock number' name="stock_number")
+                        p#stockNumberErr.text-danger
+                    .form-group.m-2
+                        label Quantity*
+                        input#quantity.form-control(type='number' placeholder='Quantity needed on equip' name="quantity")
+                        p#quantityErr.text-danger
+                    .form-group.m-2
+                        label Location*
+                        input#location.form-control(type='text' placeholder='Enter Location' name="location")
+                        p#locationErr.text-danger
+                    .form-group.m-2
+                        label Description*
+                        textarea#description.form-control(placeholder='Describe part' name="description")
+                        p#descriptionErr.text-danger
+                    .form-group.m-2
+                        label Schematic Drawing*
+                        input#drawing.form-control(type='file' name="drawing")
+                        p#drawingErr.text-danger
+                        .card-footer.bg-white
+                            button.btn.btn-primary(type='submit') Submit Part
+
+                    
+                 
+                    
+                            
+    include ./includes/components/alert-logout.pug
+    include ./includes/components/alert-delete.pug
+include ./includes/footer.pug
+include ./includes/scripts.pug
+script(src="/dist/js/parts.js")
+
+
+        

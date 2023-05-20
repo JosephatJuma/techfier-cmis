@@ -22,14 +22,6 @@ const validatePartsForm = () => {
     return false;
   }
   blurInput(input, err);
-  input = document.getElementById("description");
-  err = document.getElementById("descriptionErr");
-  if (input.value == "") {
-    err.textContent = "Please provide description!";
-    input.style.borderColor = "red";
-    return false;
-  }
-  blurInput(input, err);
   input = document.getElementById("quantity");
   err = document.getElementById("quantityErr");
   if (input.value == "") {
@@ -46,9 +38,17 @@ const validatePartsForm = () => {
     return false;
   }
   blurInput(input, err);
+  input = document.getElementById("description");
+  err = document.getElementById("descriptionErr");
+  if (input.value == "") {
+    err.textContent = "Please provide description!";
+    input.style.borderColor = "red";
+    return false;
+  }
+  blurInput(input, err);
   input = document.getElementById("drawing");
   err = document.getElementById("drawingErr");
-  let image = document.forms["parts_form"]["drawing"].value;
+  let image = document.forms["form"]["drawing"].value;
   if (!image) {
     input.focus();
     input.style.borderColor = "red";
@@ -57,4 +57,17 @@ const validatePartsForm = () => {
   }
   blurInput(input, err);
   return true;
+};
+let form = document.getElementById("parts_form");
+let add_btn = document.getElementById("add_btn");
+let cancel_btn = document.getElementById("cancel_btn");
+const addNewPart = () => {
+  form.style.display = "flex";
+  cancel_btn.style.display = "block";
+  add_btn.style.display = "none";
+};
+const cancelAddNewPart = () => {
+  form.style.display = "none";
+  cancel_btn.style.display = "none";
+  add_btn.style.display = "block";
 };

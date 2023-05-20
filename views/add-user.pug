@@ -22,12 +22,13 @@ include ./includes/head.pug
                 .card.card-primary
                     .card-header
                         h3.card-title Add User
-                    form(action="/user/add" method="Post")
+                    form(action="/user/add" method="Post" onsubmit="return validateUserForm();")
                      .card-body
                       .row
                         .form-group.m-2
                             label User Name
                             input#name.form-control(type='text' placeholder='Enter user name' name="name")
+                            p#nameErr.text-danger
                         .form-group.m-2
                             label User Role
                             select#user_role.form-control( name="user_role")
@@ -35,25 +36,31 @@ include ./includes/head.pug
                                 option(value="Adminstrator") Adminstrator
                                 option(value="Superviser") Superviser 
                                 option(value="Technician") Technician
+                            p#roleErr.text-danger
                         .form-group.m-2
                             label User Email
                             input#email.form-control(type='text' placeholder='Enter user email' name="email")
+                            p#emailErr.text-danger
                       .row
                         .form-group.m-2
                             label Work Station
                             input#station.form-control(type='text' placeholder='Enter user Work station' name="work_station")
+                            p#stationErr.text-danger
                         .form-group.m-2
                             label Department
                             select#department.form-control( name="department")
                                 option(value="" selected disabled) Department
                                 each department in departments
                                   option(value=department.name ) #{department.name}
+                            p#departmentErr.text-danger
                         .form-group.m-2
                             label Phone Number
                             input#phone_number.form-control(type='tel' placeholder='Enter user phone' name="phone_number")
+                            p#phoneErr.text-danger
                       .card-footer.bg-white
                                 button.btn.btn-primary(type='submit') Add User
   include ./includes/components/alert-logout.pug
   include ./includes/footer.pug
 // ./wrapper
 include ./includes/scripts.pug
+script(src="/dist/js/user.js") 

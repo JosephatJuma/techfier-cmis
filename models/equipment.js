@@ -6,7 +6,10 @@ const Equipment = new mongoose.Schema({
   department: { type: String },
   barcode: { type: String },
   description: { type: String },
+  added_by: { type: String },
+  date_added: { type: String },
   parts: { type: Object },
+  edit_history: { type: Object },
 });
 
 module.exports = mongoose.model("equipment", Equipment);
