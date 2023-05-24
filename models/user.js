@@ -11,6 +11,7 @@ const User = new mongoose.Schema({
   phone_number: { type: String },
   about: { type: String },
   image: { type: String },
+  accessed: { type: Boolean },
 });
 
 module.exports = mongoose.model("user", User);

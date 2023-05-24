@@ -44,14 +44,14 @@ include ./includes/head.pug
           // ./col
           .col-lg-3.col-6
             // small box
-            .small-box.bg-success
+            .small-box.bg-secondary
               .inner
                 h3
                   | 53
                   sup(style='font-size: 20px') %
                 p Total work orders
               .icon
-                i.ion.ion-stats-bars
+                i.fa.fa-chair
               a.small-box-footer(href='#')
                 | More info 
                 i.fas.fa-arrow-circle-right
@@ -63,22 +63,35 @@ include ./includes/head.pug
                 h3 44
                 p Pending work order
               .icon
-                i.ion.ion-person-add
+                i.fa.fa-table
               a.small-box-footer(href='#')
                 | More info 
                 i.fas.fa-arrow-circle-right
           // ./col
           .col-lg-3.col-6
             // small box
-            .small-box.bg-danger
+            .small-box.bg-success
               .inner
                 h3 65
                 p Completed work orders
               .icon
-                i.ion.ion-pie-graph
+                i.fa.fa-check-circle
               a.small-box-footer(href='#')
                 | More info 
                 i.fas.fa-arrow-circle-right
+          .col-lg-3.col-6
+            // small box
+            .small-box.bg-pink
+              .inner
+                h3
+                  | #{users}
+                p Registered Users
+              .icon
+                i.fa.fa-users
+              a.small-box-footer(href='#')
+                | More info 
+                i.fas.fa-arrow-circle-right
+          // ./col
    
   include ./includes/components/alert-logout.pug
   include ./includes/footer.pug

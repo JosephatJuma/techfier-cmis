@@ -7,25 +7,48 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
-  if (user) {
-    const validPass = await bcrypt.compare(req.body.password, user.password);
-    if (!validPass) {
+  if (req.body.id) {
+    const user = await User.findOne({ id: req.body.id });
+    if (user) {
+      const validPass = await bcrypt.compare(req.body.password, user.password);
+      if (!validPass) {
+        res.render("login.pug", {
+          message: "Wrong Password!",
+          id: req.body.id,
+          password: req.body.password,
+        });
+      } else {
+        req.session.user = user;
+        res.redirect("/");
+      }
+    } else {
       res.render("login.pug", {
-        message: "Wrong Password!",
+        message: "No user found with Id provided!",
         id: req.body.id,
         password: req.body.password,
       });
-    } else {
-      req.session.user = user;
-      res.redirect("/");
     }
   } else {
-    res.render("login.pug", {
-      message: "No user found with email provided!",
-      id: req.body.id,
-      password: req.body.password,
-    });
+    const user = await User.findOne({ email: req.body.email });
+    if (user) {
+      const validPass = await bcrypt.compare(req.body.password, user.password);
+      if (!validPass) {
+        res.render("login.pug", {
+          message: "Wrong Password!",
+          id: req.body.id,
+          password: req.body.password,
+        });
+      } else {
+        req.session.user = user;
+        res.redirect("/");
+      }
+    } else {
+      res.render("login.pug", {
+        message: "No user found with email provided!",
+        id: req.body.id,
+        password: req.body.password,
+      });
+    }
   }
 });
 

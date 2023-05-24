@@ -33,15 +33,15 @@ body
                   li.nav-item
                     a.nav-link(href='#history' data-toggle='tab') History
                   li.nav-item
-                    a.nav-link(href='#techincal_data' data-toggle='tab') Technical data
+                    a.nav-link(href='#technical_data' data-toggle='tab') Technical data
                   li.nav-item
                     a.nav-link(href='#checks' data-toggle='tab') Normal PM’s and checks
                   li.nav-item
                     a.nav-link(href='#schematics' data-toggle='tab') Schematics
                   li.nav-item
-                    a.nav-link(href='# vendor_files' data-toggle='tab')  Vendor files
+                    a.nav-link(href='#vendor_files' data-toggle='tab')  Vendor files
                   li.nav-item
-                    a.nav-link(href='# technical_files' data-toggle='tab')  Technical files
+                    a.nav-link(href='#technical_files' data-toggle='tab')  Technical files
                   
               // /.card-header
               .card-body
@@ -51,26 +51,29 @@ body
                     .timeline.timeline-inverse
                       // timeline time label
                       .time-label
-                        span.bg-success.m2
+                        span.bg-success.m-2
                           | #{equipment.equipment_name}
-                        span.bg-secondary
+                        span.bg-secondary.m-2
                           | #{equipment.date_added}
                       // /.timeline-label
                       // timeline item
                       div
-                        -var time = new Date()-new Date(equipment.date_added)
+                        -var time = new Date(equipment.date_added)
                         i.fas.fa-info.bg-primary
                         .timeline-item
                           span.time
                             i.far.fa-clock
-                            |  #{time} hours ago
+                            |  #{time.getDate()} hours ago
                           h3.timeline-header
                             a(href='#') Description
                           .timeline-body
                             | #{equipment.description}
                           .timeline-footer
-                            a.btn.btn-warning.btn-sm(href='#') Disable
-                            a.btn.btn-danger.btn-sm(data-toggle="modal" data-target="#alertDelete") Delete
+                            //a.btn.btn-warning.btn-sm(href='#') Disable
+                      div 
+                       i.fas.fa-trash.bg-info
+                       .timeline-item.bg-transparent
+                        a.btn.btn-danger.btn-sm(data-toggle="modal" data-target="#alertDelete") Delete
                       div
                         i.fas.fa-user.bg-info
                         .timeline-item
@@ -97,24 +100,27 @@ body
                         i.far.fa-clock.bg-gray
                   // /.tab-pane
                   #edit.tab-pane
-                    form.form-horizontal(action=`/equipment/edit/${equipment._id}` method="post")
-                     .row
-                      .form-group.m2
-                        label(for='inputName') Equipment Name
-                          input#equipment_name.form-control(type='text' placeholder='Name' value=equipment.equipment_name name="equipment_name")
-                      .form-group-m2
-                        label(for='inputEmail') Department of the equipment
-                          select#department.form-control(name="department")
-                           option(value=equipment.department selected ) #{equipment.department}
-                           each department in departments 
-                            if department.name !== equipment.department
-                                option(value=department.name) #{department.name}                  
-                     .row
-                      .form-group.m2
-                        label(for='inputExperience') Description 
-                          textarea#description.form-control(placeholder='Description' name="description" cols="45") #{equipment.description}
-                     .card-footer
-                          button.btn.btn-secondary(type='submit') Update 
+                   .card 
+                    .card-header
+                      .card-title Edit #{equipment.equipment_name}
+                    .card-body
+                     form.form-horizontal(action=`/equipment/edit/${equipment._id}` method="post")
+                      .row
+                        .form-group.m-2
+                          label(for='inputName') Equipment Name
+                            input#equipment_name.form-control(type='text' placeholder='Name' value=equipment.equipment_name name="equipment_name")
+                        .form-group.m-2
+                          label(for='inputEmail') Department of the equipment
+                            select#department.form-control(name="department")
+                              option(value=equipment.department selected ) #{equipment.department}
+                              each department in departments 
+                                if department.name !== equipment.department
+                                    option(value=department.name) #{department.name}                  
+                        .form-group.m-2
+                          label(for='inputExperience') Description 
+                            textarea#description.form-control(placeholder='Description' name="description" cols="45") #{equipment.description}
+                        .card-footer.bg-white
+                              button.btn.btn-secondary(type='submit') Update 
                   #parts.tab-pane 
                       if !equipment.parts
                           p No parts added
@@ -130,7 +136,18 @@ body
                                                  
                                     .collapse(data-parent="#accordion" id=`collapse${part.stock_number}`)
                                       .card-body.bg-light
-                                        p  #{part.description}     
+                                        p  #{part.description} 
+                                        .timeline.timeline-inverse
+                                          // timeline time label
+                                          .time-label
+                                            span.bg-success.m-2
+                                              | Stock Number: #{part.stock_number}
+                                            span.bg-primary.m-2
+                                              | Location: #{part.location}
+                                            span.bg-secondary.m-2
+                                              | Quantity: #{part.quantity}
+                                             
+                                          
                                     
                                     
                                  
@@ -155,6 +172,26 @@ body
                             | Histort Here
                           .timeline-footer
                             a.btn.btn-primary.btn-flat.btn-sm(href='#') View History
+                  #technical_data.tab-pane 
+                    .card 
+                     .card-header
+                      .card-title Techincal Data
+                  #checks.tab-pane 
+                    .card 
+                     .card-header
+                      .card-title Normal PM’s and checks
+                  #schematics.tab-pane
+                    .card 
+                     .card-header
+                      .card-title Schematics
+                  #vendor_files.tab-pane  
+                    .card 
+                     .card-header
+                      .card-title Vendor files
+                  #technical_files.tab-pane 
+                    .card 
+                     .card-header
+                      .card-title Technical files
         .card#parts_form(style="display:none;")
             .card-header
               h3.card-title Add new part
@@ -166,27 +203,27 @@ body
             .card-body
                 form#form(action=`/equipment/parts/${equipment._id}` method="Post" onsubmit="return validatePartsForm();"  )
                  .row
-                    .form-group.m-2
+                    .form-group.m-2.w-10
                         label Part Name*
                         input#part_name.form-control(type='text' placeholder='Enter part name' name="part_name")
                         p#nameErr.text-danger
-                    .form-group.m-2
+                    .form-group.m-2.w-10
                         label Stock Number*
                         input#stock_number.form-control(type='number' placeholder='Enter stock number' name="stock_number")
                         p#stockNumberErr.text-danger
-                    .form-group.m-2
+                    .form-group.m-2.w-10
                         label Quantity*
                         input#quantity.form-control(type='number' placeholder='Quantity needed on equip' name="quantity")
                         p#quantityErr.text-danger
-                    .form-group.m-2
+                    .form-group.m-2.w-10
                         label Location*
                         input#location.form-control(type='text' placeholder='Enter Location' name="location")
                         p#locationErr.text-danger
-                    .form-group.m-2
+                    .form-group.m-2.w-10
                         label Description*
                         textarea#description.form-control(placeholder='Describe part' name="description")
                         p#descriptionErr.text-danger
-                    .form-group.m-2
+                    .form-group.m-2.w-10
                         label Schematic Drawing*
                         input#drawing.form-control(type='file' name="drawing")
                         p#drawingErr.text-danger

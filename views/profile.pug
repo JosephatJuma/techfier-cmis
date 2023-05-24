@@ -266,15 +266,15 @@ body
                         .offset-sm-2.col-sm-10
                           button.btn.btn-danger(type='submit') Update
     #rightModal.modal.fade.right(tabindex='-1' role='dialog' aria-labelledby='rightModalLabel' aria-hidden='true')
-      .modal-dialog(role='document')
-        .modal-content
+      .modal-dialog(role='document' style="height:100%;" )
+        .modal-content(style="height:80%;")
           .modal-header
             h5#rightModalLabel.modal-title Update Profile Image
             button.close(type='button' data-dismiss='modal' aria-label='Close')
               span(aria-hidden='true') &times;
           .modal-body
             form(action="/user/update/image" method="post" )
-              input#image(type="file", name="image")
+              input#image.file-upload(type="file", name="image" style=" height:100%;")
               .modal-footer
                 button.btn.btn-secondary(type='button' data-dismiss='modal') Close
                 button.btn.btn-primary(type='submit') Save changes

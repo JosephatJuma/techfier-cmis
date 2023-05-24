@@ -42,7 +42,7 @@ body.hold-transition.login-page(style="background-image:url('/dist/img/login.jpg
                 .card-body.login-card-body
                   p.login-box-msg Sign in to start your session
                   p.text-danger #{message}
-                  form(action='login/id' method='post')
+                  form(action='login' method='post')
                     .input-group.mb-3
                       input#id.form-control(type='text' placeholder='User ID' name="id")
                       .input-group-append
