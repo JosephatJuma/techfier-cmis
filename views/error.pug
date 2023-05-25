@@ -1,0 +1,37 @@
+include ./includes/head.pug
+.wrapper
+    .preloader.flex-column.justify-content-center.align-items-center
+        img.animation__shake(src='/dist/img/AdminLTELogo.png' alt='AdminLTELogo' height='60' width='60')
+    include ./includes/navbar.pug
+    include ./includes/sidebar.pug
+.content-wrapper
+    // Content Header (Page header)
+    section.content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1 #{page}
+          // /.col
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='/') Home
+              li.breadcrumb-item.active Dashboard
+        section.content
+          .error-page
+            h2.headline.text-warning 404
+            .error-content
+             h3
+              i.fas.fa-exclamation-triangle.text-warning 
+              | #{message}
+             p 
+             | We could not find the page you were looking for.
+             | Meanwhile, you may 
+             a.btn.bg-secondary(href=go_to_page) Return to dashboard 
+             
+                        
+    include ./includes/components/alert-logout.pug
+include ./includes/footer.pug
+include ./includes/scripts.pug
+  
+        

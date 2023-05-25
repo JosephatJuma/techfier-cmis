@@ -1,0 +1,74 @@
+include ./includes/head.pug  
+body
+  include ./includes/navbar.pug
+  // Main Sidebar Container
+  include ./includes/sidebar.pug
+  .content-wrapper
+    // Content Header (Page header)
+    section.content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1 Profile
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active #{user_profile.name}
+      // /.container-fluid
+    // Main content
+    section.content
+      .container-fluid
+        .row
+          .col-md-12
+            // Profile Image
+            .card.card-primary.card-outline
+              .card-body.box-profile
+                .text-center
+                  img.profile-user-img.img-fluid.img-circle(src='/dist/img/user4-128x128.jpg' alt='User profile picture')
+                h3.profile-username.text-center #{user_profile.name}
+                p.text-muted.text-center #{user_profile.user_role}
+                .row
+                  .col-md-5.card.m-3
+                    ul.list-group.list-group-unbordered.mb-2
+                      li.list-group-item
+                        b Followers
+                        a.float-right 1,322
+                      li.list-group-item
+                        b Following
+                        a.float-right 543
+                      li.list-group-item
+                        b Friends
+                        a.float-right 13,287
+                  .col-md-5.card.m-3
+                    strong
+                      i.fas.fa-book.mr-1
+                      |  About 
+                    p.text-muted
+                      if user.about 
+                        p #{user_profile.about}
+                      else
+                        p No About
+                    hr
+                    strong
+                      i.fas.fa-map-marker-alt.mr-1
+                      |  Work Station
+                    p.text-muted #{user_profile.work_station}
+                    hr
+                    strong
+                      i.fas.fa-pencil-alt.mr-1
+                      |  User Role
+                    p.text-muted
+                      span.tag.tag-danger #{user_profile.user_role}
+                    
+                    hr
+                    strong
+                      i.far.fa-calendar.mr-1
+                      |  Schedule
+                    p.text-muted
+                      | 
+
+
+    include ./includes/components/alert-logout.pug
+  include ./includes/footer.pug
+include ./includes/scripts.pug

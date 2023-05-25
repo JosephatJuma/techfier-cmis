@@ -3,7 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 router.get("/", (req, res) => {
-  res.render("login.pug", { page: "Login" });
+  if (req.session.user) res.redirect("/");
+  else res.render("login.pug", { page: "Login" });
 });
 
 router.post("/", async (req, res) => {

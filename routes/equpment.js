@@ -45,10 +45,6 @@ router.post("/add", requireAuth, async (req, res) => {
     });
 });
 
-//add parts
-router.get("/parts", requireAuth, async (req, res) => {
-  res.render("equipment-parts.pug", { page: "Parts", user: req.session.user });
-});
 router.get("/api", requireAuth, async (req, res) => {
   const equipment = await Equipment.find();
   res.send(equipment);
@@ -80,13 +76,23 @@ router.post("/parts/:id", requireAuth, async (req, res) => {
 
 router.get(`/details/:id`, requireAuth, async (req, res) => {
   const departments = await Department.find();
-  const equipment = await Equipment.findOne({ _id: req.params.id });
-  res.render("equipment-details.pug", {
-    equipment: equipment,
-    page: `Details`,
-    user: req.session.user,
-    departments: departments,
-  });
+  await Equipment.findOne({ _id: req.params.id })
+    .then((equipment) => {
+      res.render("equipment-details.pug", {
+        equipment: equipment,
+        page: `Details`,
+        user: req.session.user,
+        departments: departments,
+      });
+    })
+    .catch((err) => {
+      res.render("error.pug", {
+        message: "Opps! Unknown error occured",
+        page: "Unkown Error",
+        go_to_page: "/",
+        user: req.session.user,
+      });
+    });
 });
 
 //delete equipment

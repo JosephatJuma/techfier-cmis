@@ -11,48 +11,51 @@ link(rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.m
     .container-fluid
       .row.mb-2
         .col-sm-6
-          h4 All Equipment
+          h4 All Users
         .col-sm-6
           ol.breadcrumb.float-sm-right
             li.breadcrumb-item
               a(href='/') Home
-            li.breadcrumb-item.active Equipment Table
+            li.breadcrumb-item.active Users Table
     section.content
      .container-fluid
       .row
        .col-12
         .card
           .card-header
-            h3.card-title List of equpment added
+            h3.card-title List of users added
           // /.card-header
           .card-body
-           if equipment_list.length>0
-             table#example1.table.table-bordered.table-striped.table-hover
+           if users.length>0
+             table#example2.table.table-bordered.table-striped.table-hover
               thead
                 tr
-                  th Id
+                  th User Id
                   th Name
-                  th Department(s)
-                  th Barcode
-                  th Description
+                  th Email
+                  th Phone
+                  th Role
+                  th Date Added
+                  th Work Station
+                  th Accessed
                   th Action
               tbody
-                each equipment in equipment_list  
-                    tr.badge
-                      td #{equipment.id}
-                      td #{equipment.equipment_name}
-                      td #{equipment.department}
-                      td #{equipment.barcode} 
-                      td #{equipment.description}  
+                each user in users  
+                    tr.btn
+                      td #{user.id}
+                      td #{user.name}
+                      td #{user.email}
+                      td #{user.phone_number} 
+                      td #{user.user_role} 
+                      td #{user.date_added}
+                      td #{user.work_station} 
+                      td #{user.accessed}  
                       td 
-                        a(href=`/equipment/details/${equipment._id}`) 
+                        a(href=`/user/profile/${user._id}`) 
                           .btn()
                             i.fa.fa-link  
-           else
-              p There is no equipment added 
-              a(href="/equipment/add") 
-                .btn.btn-primary 
-                  i.fa.fa-plus    
+          
+             
   include ./includes/components/alert-logout.pug                
   include ./includes/footer.pug
 include ./includes/scripts.pug

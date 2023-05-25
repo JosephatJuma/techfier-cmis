@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const config = require("./.env/database");
 const session = require("express-session");
 const hostname = "0.0.0.0";
+
 //configure express session
 app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "Token", resave: false, saveUninitialized: true }));
