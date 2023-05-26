@@ -51,7 +51,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
                   p Add equipment
               li.nav-item
                 a.nav-link(href='/equipment' class= page=="All Equipment" ? "active":"")
-                  i.far.fa-file.nav-icon
+                  i.fa.fa-list.nav-icon
                   p All equipment
           li.nav-item
             a.nav-link(href='/users' class= page=="Users"|| page=="Add User" ?  "active":"")
@@ -64,6 +64,10 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4(style="position: fixed;top: 
                 a.nav-link(href='/user/add' class=  page=="Add User" ?  "active":"")
                   i.fas.fa-user-plus.nav-icon
                   p Register user
+              li.nav-item
+                a.nav-link(href='/user' class=  page=="Users" ?  "active":"")
+                  i.fa.fa-list.nav-icon
+                  p All users
           li.nav-item
             a.nav-link(href='#')
               i.fas.fa-question-circle.nav-icon
