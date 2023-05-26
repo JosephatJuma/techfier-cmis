@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Equipment = require("../models/equipment");
 const Department = require("../models/department");
+const User = require("../models/user");
 const requireAuth = require("../middleware/auth");
 
 //list of equipment availbale
@@ -32,12 +33,24 @@ router.post("/add", requireAuth, async (req, res) => {
   const equipment = new Equipment(new_equipment);
   await equipment
     .save()
-    .then(() => {
+    .then(async (equipment) => {
+      const filter = { _id: req.session.user._id };
+      const update = {
+        $push: {
+          notifications: {
+            message: `Added new equipment with id ${equipment.equipment_name}`,
+            is_read: false,
+            link: `/equipment/details/${equipment._id}`,
+          },
+        },
+      };
+      await User.updateOne(filter, update);
       res.render("success.pug", {
         go_to_page: "/equipment/details/" + equipment._id,
         equipment: equipment,
         message: "Equipmend added Successfully",
         action: "added",
+        user: req.session.user,
       });
     })
     .catch((err) => {
@@ -70,7 +83,12 @@ router.post("/parts/:id", requireAuth, async (req, res) => {
       });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error.pug", {
+        message: err.message,
+        page: "Unkown Error",
+        go_to_page: "/",
+        user: req.session.user,
+      });
     });
 });
 
@@ -87,7 +105,7 @@ router.get(`/details/:id`, requireAuth, async (req, res) => {
     })
     .catch((err) => {
       res.render("error.pug", {
-        message: "Opps! Unknown error occured",
+        message: err.message,
         page: "Unkown Error",
         go_to_page: "/",
         user: req.session.user,
@@ -107,7 +125,12 @@ router.get("/delete/:id", requireAuth, async (req, res) => {
       });
     })
     .catch((err) => {
-      res.send("error occured!");
+      res.render("error.pug", {
+        message: err.message,
+        page: "Unkown Error",
+        go_to_page: "/",
+        user: req.session.user,
+      });
     });
 });
 

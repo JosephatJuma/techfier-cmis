@@ -75,26 +75,21 @@ nav.main-header.navbar.navbar-expand.navbar-white.navbar-light
       li.nav-item.dropdown
         a.nav-link(data-toggle='dropdown' href='#')
           i.far.fa-bell
-          span.badge.badge-warning.navbar-badge 15
+          if user.notifications
+            span.badge.badge-warning.navbar-badge #{user.notifications.length}
+          else 
+            span.badge.badge-warning.navbar-badge 0
         .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
-          span.dropdown-item.dropdown-header 15 Notifications
-          .dropdown-divider
-          a.dropdown-item(href='#')
-            i.fas.fa-envelope.mr-2
-            |  4 new messages
-            span.float-right.text-muted.text-sm 3 mins
-          .dropdown-divider
-          a.dropdown-item(href='#')
-            i.fas.fa-users.mr-2
-            |  8 friend requests
-            span.float-right.text-muted.text-sm 12 hours
-          .dropdown-divider
-          a.dropdown-item(href='#')
-            i.fas.fa-file.mr-2
-            |  3 new reports
-            span.float-right.text-muted.text-sm 2 days
-          .dropdown-divider
-          a.dropdown-item.dropdown-footer(href='#') See All Notifications
+         if user.notifications
+          span.dropdown-item.dropdown-header #{user.notifications.length} Notifications
+          -var nots=user.notifications
+          each not in nots
+            .dropdown-divider
+            a.dropdown-item(href=`${not.link}`)
+              i.fas.fa-bell.mr-2
+              p #{not.message}
+              span.float-right.text-muted.text-sm 3 mins
+          
       li.nav-item
         a.nav-link(data-widget='fullscreen' href='#' role='button')
           i.fas.fa-expand-arrows-alt

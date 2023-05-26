@@ -14,6 +14,7 @@ const User = new mongoose.Schema({
   about: { type: String },
   image: { type: String },
   accessed: { type: Boolean },
+  notifications: { type: Array },
 });
 
 module.exports = mongoose.model("user", User);
