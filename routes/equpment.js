@@ -54,7 +54,12 @@ router.post("/add", requireAuth, async (req, res) => {
       });
     })
     .catch((err) => {
-      res.send(err.message);
+      res.render("error.pug", {
+        message: "Opps! An Unknown err occured!",
+        page: "Unkown Error",
+        go_to_page: "/",
+        user: req.session.user,
+      });
     });
 });
 
@@ -84,7 +89,7 @@ router.post("/parts/:id", requireAuth, async (req, res) => {
     })
     .catch((err) => {
       res.render("error.pug", {
-        message: err.message,
+        message: "Opps! An Unknown err occured!",
         page: "Unkown Error",
         go_to_page: "/",
         user: req.session.user,
@@ -105,7 +110,7 @@ router.get(`/details/:id`, requireAuth, async (req, res) => {
     })
     .catch((err) => {
       res.render("error.pug", {
-        message: err.message,
+        message: "Opps! An Unknown err occured!",
         page: "Unkown Error",
         go_to_page: "/",
         user: req.session.user,
@@ -126,7 +131,7 @@ router.get("/delete/:id", requireAuth, async (req, res) => {
     })
     .catch((err) => {
       res.render("error.pug", {
-        message: err.message,
+        message: "Opps! An Unknown err occured!",
         page: "Unkown Error",
         go_to_page: "/",
         user: req.session.user,
@@ -149,16 +154,25 @@ router.post("/edit/:id", requireAuth, async (req, res) => {
       edit_history: edit_history,
     },
   };
-  await Equipment.updateOne(filter, update).then(() => {
-    res.render("success.pug", {
-      message: "Equipment edited successfully",
-      go_to_page: "/equipment/details/" + req.params.id,
-      page: "equipment",
-      user: req.session.user,
-      action: "edited",
-      equipment_id: req.params.id,
+  await Equipment.updateOne(filter, update)
+    .then(() => {
+      res.render("success.pug", {
+        message: "Equipment edited successfully",
+        go_to_page: "/equipment/details/" + req.params.id,
+        page: "equipment",
+        user: req.session.user,
+        action: "edited",
+        equipment_id: req.params.id,
+      });
+    })
+    .catch((err) => {
+      res.render("error.pug", {
+        message: "Opps! An Unknown err occured!",
+        page: "Unkown Error",
+        go_to_page: "/",
+        user: req.session.user,
+      });
     });
-  });
 });
 
 module.exports = router;

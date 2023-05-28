@@ -84,7 +84,7 @@ router.get("/profile/:id", requireAuth, async (req, res) => {
     });
 });
 
-router.get("/newpassword", requireAuth, (req, res) => {
+router.get("/newpassword", (req, res) => {
   res.render("reset-password.pug", {
     user: req.session.user,
     message: "Set new password",
